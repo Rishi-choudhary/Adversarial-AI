@@ -1,0 +1,549 @@
+{% extends "base.html" %}
+
+{% block title %}Login & Signup - Adversarial AI{% endblock %}
+
+{% block content %}
+<div class="auth-page">
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <!-- Left Side - Hero/Branding -->
+            <div class="col-lg-6 d-none d-lg-flex auth-hero">
+                <div class="hero-content">
+                    <div class="hero-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h1 class="hero-title">Adversarial AI</h1>
+                    <p class="hero-subtitle">The future of legal debate generation</p>
+                    <div class="hero-features">
+                        <div class="feature-item">
+                            <i class="fas fa-robot"></i>
+                            <span>AI-Powered Arguments</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-balance-scale-right"></i>
+                            <span>Balanced Perspectives</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Legal Precedents</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Forms -->
+            <div class="col-lg-6 col-12 auth-forms">
+                <div class="form-container">
+                    <!-- Mobile Header -->
+                    <div class="mobile-header d-lg-none">
+                        <div class="mobile-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h2>Adversarial AI</h2>
+                    </div>
+
+                    <!-- Tab Switcher -->
+                    <div class="auth-tabs">
+                        <button class="tab-btn active" data-tab="login">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Sign In
+                        </button>
+                        <button class="tab-btn" data-tab="signup">
+                            <i class="fas fa-user-plus"></i>
+                            Sign Up
+                        </button>
+                    </div>
+
+                    <!-- Login Form -->
+                    <div class="auth-form-wrapper active" id="login-form">
+                        <h3 class="form-title">Welcome Back</h3>
+                        <p class="form-subtitle">Enter the courtroom of AI debates</p>
+
+                        <form method="POST" class="auth-form" novalidate>
+                            <input type="hidden" name="action" value="login">
+                            
+                            <div class="form-group">
+                                <label for="login-username">Username</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" 
+                                           id="login-username" 
+                                           name="username" 
+                                           placeholder="Enter your username"
+                                           required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="login-password">Password</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" 
+                                           id="login-password" 
+                                           name="password" 
+                                           placeholder="Enter your password"
+                                           required>
+                                    <button type="button" class="password-toggle" onclick="togglePassword('login-password')">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-sign-in-alt"></i>
+                                Sign In
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Signup Form -->
+                    <div class="auth-form-wrapper" id="signup-form">
+                        <h3 class="form-title">Join the Arena</h3>
+                        <p class="form-subtitle">Create your legal advocate account</p>
+
+                        <form method="POST" class="auth-form" novalidate>
+                            <input type="hidden" name="action" value="signup">
+                            
+                            <div class="form-group">
+                                <label for="signup-username">Username</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" 
+                                           id="signup-username" 
+                                           name="username" 
+                                           placeholder="Choose a username"
+                                           required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="signup-email">Email Address</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" 
+                                           id="signup-email" 
+                                           name="email" 
+                                           placeholder="your.email@example.com"
+                                           required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="signup-password">Password</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" 
+                                           id="signup-password" 
+                                           name="password" 
+                                           placeholder="Create a strong password"
+                                           required>
+                                    <button type="button" class="password-toggle" onclick="togglePassword('signup-password')">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <small class="help-text">Minimum 6 characters recommended</small>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-user-plus"></i>
+                                Create Account
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Back to Home -->
+                    <div class="back-link">
+                        <a href="{{ url_for('index') }}">
+                            <i class="fas fa-arrow-left"></i>
+                            Back to Home
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.auth-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.auth-hero {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.1"><circle cx="30" cy="30" r="3"/><circle cx="10" cy="10" r="2"/><circle cx="50" cy="50" r="1"/></g></svg>') repeat;
+    opacity: 0.3;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 1;
+    max-width: 400px;
+}
+
+.hero-icon {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.hero-title {
+    font-family: var(--font-pixel-title);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+}
+
+.hero-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.1rem;
+}
+
+.feature-item i {
+    font-size: 1.5rem;
+    color: #FFD700;
+}
+
+.auth-forms {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.mobile-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.mobile-icon {
+    font-size: 3rem;
+    color: var(--pixel-primary);
+    margin-bottom: 1rem;
+}
+
+.mobile-header h2 {
+    font-family: var(--font-pixel-title);
+    color: var(--pixel-primary);
+    font-size: 1.5rem;
+}
+
+.auth-tabs {
+    display: flex;
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 4px;
+    margin-bottom: 2rem;
+}
+
+.tab-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #6c757d;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    background: white;
+    color: var(--pixel-primary);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.tab-btn i {
+    margin-right: 8px;
+}
+
+.auth-form-wrapper {
+    display: none;
+}
+
+.auth-form-wrapper.active {
+    display: block;
+    animation: fadeInUp 0.4s ease;
+}
+
+.form-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+    color: #718096;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 16px;
+    color: #a0aec0;
+    z-index: 2;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 14px 16px 14px 48px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: var(--pixel-primary);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.input-wrapper input.error {
+    border-color: #e53e3e;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #a0aec0;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 2;
+}
+
+.password-toggle:hover {
+    color: var(--pixel-primary);
+}
+
+.help-text {
+    color: #718096;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--pixel-primary), #5a67d8);
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.submit-btn i {
+    margin-right: 8px;
+}
+
+.back-link {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.back-link a {
+    color: #718096;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.back-link a:hover {
+    color: var(--pixel-primary);
+}
+
+.back-link i {
+    margin-right: 8px;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 991.98px) {
+    .auth-page {
+        background: white;
+    }
+    
+    .auth-forms {
+        padding: 1rem;
+    }
+}
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Tab switching
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const targetTab = this.dataset.tab;
+        
+        // Update buttons
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Update forms
+        document.querySelectorAll('.auth-form-wrapper').forEach(form => form.classList.remove('active'));
+        document.getElementById(targetTab + '-form').classList.add('active');
+    });
+});
+
+// Password toggle functionality
+function togglePassword(inputId) {
+    const input = document.getElementById(inputId);
+    const button = event.target.closest('button');
+    const icon = button.querySelector('i');
+    
+    if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+    } else {
+        input.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+    }
+}
+
+// Form validation
+document.querySelectorAll('.auth-form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+        const inputs = this.querySelectorAll('input[required]');
+        let isValid = true;
+        
+        inputs.forEach(input => {
+            input.classList.remove('error');
+            
+            if (!input.value.trim()) {
+                input.classList.add('error');
+                isValid = false;
+            } else if (input.type === 'email' && !isValidEmail(input.value)) {
+                input.classList.add('error');
+                isValid = false;
+            } else if (input.type === 'password' && input.value.length < 6) {
+                input.classList.add('error');
+                isValid = false;
+            }
+        });
+        
+        if (!isValid) {
+            e.preventDefault();
+            return;
+        }
+        
+        // Show loading state
+        const submitBtn = this.querySelector('.submit-btn');
+        const originalHTML = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+        submitBtn.disabled = true;
+        
+        // Re-enable after timeout
+        setTimeout(() => {
+            if (submitBtn.disabled) {
+                submitBtn.innerHTML = originalHTML;
+                submitBtn.disabled = false;
+            }
+        }, 10000);
+    });
+});
+
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+// Input animations
+document.querySelectorAll('input').forEach(input => {
+    input.addEventListener('focus', function() {
+        this.parentElement.style.transform = 'scale(1.02)';
+    });
+    
+    input.addEventListener('blur', function() {
+        this.parentElement.style.transform = 'scale(1)';
+    });
+});
+</script>
+{% endblock %}

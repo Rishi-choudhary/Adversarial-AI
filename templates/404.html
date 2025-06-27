@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found - Adversarial AI{% endblock %}
+
+{% block content %}
+<div class="container error-container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <div class="card pixel-error-card shadow-lg">
+                <div class="card-body text-center p-5">
+                    <div class="error-icon mb-4">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h1 class="pixel-error-code">404</h1>
+                    <h3 class="pixel-card-title mb-3">Case Not Found</h3>
+                    <p class="lead mb-4">
+                        The legal document you're looking for has been dismissed from the court record.
+                    </p>
+                    <div class="error-actions">
+                        <a href="{{ url_for('index') }}" class="btn pixel-btn-primary btn-lg me-3">
+                            <i class="fas fa-home me-2"></i>Return to Court
+                        </a>
+                        <a href="javascript:history.back()" class="btn pixel-btn-secondary btn-lg">
+                            <i class="fas fa-arrow-left me-2"></i>Go Back
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.error-container {
+    padding: 5rem 0;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.pixel-error-card {
+    background: var(--pixel-white);
+    border: var(--border-pixel) var(--pixel-accent);
+    border-radius: 12px;
+    box-shadow: var(--shadow-pixel) var(--pixel-accent);
+}
+
+.error-icon {
+    font-size: 4rem;
+    color: var(--pixel-accent);
+}
+
+.pixel-error-code {
+    font-family: var(--font-pixel-title);
+    font-size: 5rem;
+    color: var(--pixel-accent);
+    text-shadow: 2px 2px 0px var(--pixel-parchment);
+    margin-bottom: 1rem;
+}
+</style>
+{% endblock %}

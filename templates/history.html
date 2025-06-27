@@ -1,0 +1,334 @@
+{% extends "base.html" %}
+
+{% block title %}Debate History - Adversarial AI{% endblock %}
+
+{% block content %}
+<div class="container history-container">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="history-header text-center">
+                <div class="pixel-gavel mb-3">
+                    <i class="fas fa-history bounce-icon"></i>
+                </div>
+                <h2 class="pixel-topic-title">Your Debate History</h2>
+                <p class="pixel-subtitle">Review your AI-generated legal arguments</p>
+                <div class="header-actions mt-3">
+                    <a href="{{ url_for('index') }}" class="btn pixel-btn-primary me-2">
+                        <i class="fas fa-plus me-2"></i>New Debate
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if debates %}
+    <!-- Debates List -->
+    <div class="row">
+        {% for debate in debates %}
+        <div class="col-lg-6 mb-4">
+            <div class="card debate-history-card shadow">
+                <div class="card-header debate-card-header">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-balance-scale me-2"></i>
+                            Debate #{{ debate.id }}
+                        </h5>
+                        <small class="debate-date">
+                            <i class="fas fa-clock me-1"></i>
+                            {{ debate.created_at.strftime('%m/%d/%Y at %H:%M') }}
+                        </small>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="debate-topic mb-3">
+                        <h6 class="topic-label">Topic:</h6>
+                        <p class="topic-text">{{ debate.topic }}</p>
+                    </div>
+                    
+                    <div class="argument-preview">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="preview-section pro-preview">
+                                    <h6 class="preview-title">
+                                        <i class="fas fa-thumbs-up me-1"></i>Pro
+                                    </h6>
+                                    <p class="preview-text">
+                                        {{ debate.pro_argument[:150] }}{% if debate.pro_argument|length > 150 %}...{% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="preview-section con-preview">
+                                    <h6 class="preview-title">
+                                        <i class="fas fa-thumbs-down me-1"></i>Con
+                                    </h6>
+                                    <p class="preview-text">
+                                        {{ debate.con_argument[:150] }}{% if debate.con_argument|length > 150 %}...{% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="debate-actions mt-3">
+                        <a href="{{ url_for('workplace', id=debate.id) }}" class="btn pixel-btn-primary btn-sm">
+                            <i class="fas fa-eye me-1"></i>View Full Debate
+                        </a>
+                        <button class="btn pixel-btn-outline btn-sm ms-2" onclick="copyDebateLink({{ debate.id }})">
+                            <i class="fas fa-share me-1"></i>Share
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination (if needed in future) -->
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <p class="text-muted">
+                <i class="fas fa-info-circle me-1"></i>
+                Showing {{ debates|length }} debate{% if debates|length != 1 %}s{% endif %}
+            </p>
+        </div>
+    </div>
+
+    {% else %}
+    <!-- Empty State -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card empty-state-card shadow">
+                <div class="card-body text-center p-5">
+                    <div class="empty-icon mb-4">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3 class="pixel-card-title mb-3">No Debates Yet</h3>
+                    <p class="lead mb-4">
+                        You haven't generated any legal arguments yet. Start your first debate to see them here!
+                    </p>
+                    <div class="empty-actions">
+                        <a href="{{ url_for('index') }}" class="btn pixel-btn-primary btn-lg">
+                            <i class="fas fa-plus me-2"></i>Start Your First Debate
+                        </a>
+                    </div>
+                    <div class="empty-suggestions mt-4">
+                        <p class="text-muted mb-2">Try these popular topics:</p>
+                        <div class="suggestion-chips">
+                            <span class="suggestion-chip" onclick="goToTopicDebate('Should hate speech be protected under the First Amendment?')">
+                                Free Speech
+                            </span>
+                            <span class="suggestion-chip" onclick="goToTopicDebate('Is capital punishment constitutional and effective?')">
+                                Death Penalty
+                            </span>
+                            <span class="suggestion-chip" onclick="goToTopicDebate('Should privacy rights extend to digital communications?')">
+                                Digital Privacy
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<style>
+.history-container {
+    padding: 2rem 0;
+}
+
+.history-header {
+    background: var(--pixel-white);
+    border: var(--border-pixel) var(--pixel-primary);
+    border-radius: 12px;
+    box-shadow: var(--shadow-pixel) var(--pixel-primary);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.debate-history-card {
+    border: var(--border-pixel) var(--pixel-neutral);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.debate-history-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border-color: var(--pixel-primary);
+}
+
+.debate-card-header {
+    background: linear-gradient(135deg, var(--pixel-parchment), #f0f0f0);
+    border-bottom: 2px solid var(--pixel-neutral);
+}
+
+.debate-date {
+    color: var(--pixel-neutral);
+    font-family: var(--font-pixel-mono);
+}
+
+.topic-label {
+    font-family: var(--font-pixel-body);
+    font-weight: 600;
+    color: var(--pixel-primary);
+    margin-bottom: 0.5rem;
+}
+
+.topic-text {
+    font-family: var(--font-pixel-body);
+    color: var(--pixel-dark-grey);
+    line-height: 1.5;
+}
+
+.argument-preview {
+    border-top: 2px dashed var(--pixel-neutral);
+    padding-top: 1rem;
+}
+
+.preview-section {
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.pro-preview {
+    background: rgba(141, 180, 212, 0.1);
+    border-left: 4px solid var(--pixel-primary);
+}
+
+.con-preview {
+    background: rgba(212, 131, 122, 0.1);
+    border-left: 4px solid var(--pixel-accent);
+}
+
+.preview-title {
+    font-family: var(--font-pixel-body);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.preview-title.pro {
+    color: var(--pixel-primary);
+}
+
+.preview-title.con {
+    color: var(--pixel-accent);
+}
+
+.preview-text {
+    font-size: 0.85rem;
+    color: var(--pixel-dark-grey);
+    line-height: 1.4;
+    margin: 0;
+}
+
+.empty-state-card {
+    background: var(--pixel-white);
+    border: var(--border-pixel) var(--pixel-neutral);
+    border-radius: 12px;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    color: var(--pixel-neutral);
+    opacity: 0.7;
+}
+
+.suggestion-chips {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.suggestion-chip {
+    display: inline-block;
+    background: var(--pixel-parchment);
+    border: 2px solid var(--pixel-primary);
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-pixel-body);
+    font-weight: 500;
+    color: var(--pixel-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.suggestion-chip:hover {
+    background: var(--pixel-primary);
+    color: var(--pixel-white);
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .argument-preview .row {
+        flex-direction: column;
+    }
+    
+    .preview-section {
+        margin-bottom: 0.5rem;
+    }
+    
+    .suggestion-chips {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .suggestion-chip {
+        width: 80%;
+        text-align: center;
+    }
+}
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function copyDebateLink(debateId) {
+    const url = window.location.origin + '/workplace?id=' + debateId;
+    
+    navigator.clipboard.writeText(url).then(function() {
+        // Show success feedback
+        const btn = event.target.closest('button');
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check me-1"></i>Copied!';
+        btn.disabled = true;
+        
+        setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.disabled = false;
+        }, 2000);
+    }).catch(function(err) {
+        console.error('Could not copy link: ', err);
+        // Fallback notification
+        alert('Debate link: ' + url);
+    });
+}
+
+function goToTopicDebate(topic) {
+    // Redirect to home page and fill the topic
+    const encodedTopic = encodeURIComponent(topic);
+    window.location.href = '/?topic=' + encodedTopic;
+}
+
+// Add fade-in animation to cards
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.debate-history-card');
+    cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            card.style.transition = 'all 0.6s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, 100 + (index * 100));
+    });
+});
+</script>
+{% endblock %}

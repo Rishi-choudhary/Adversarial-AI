@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Adversarial AI{% endblock %}
+
+{% block content %}
+<div class="container hero-section">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <!-- Hero Header -->
+            <div class="text-center mb-5 hero-header">
+                <div class="pixel-scales-large mb-4">
+                    <i class="fas fa-balance-scale gavel-bounce"></i>
+                </div>
+                <h1 class="pixel-title display-4 mb-3">
+                    Adversarial AI
+                </h1>
+                <p class="pixel-subtitle lead mb-2">
+                    Because every argument deserves its day in court
+                </p>
+                <p class="pixel-tagline">
+                    Justice, but make it pixel. ⚖️✨
+                </p>
+            </div>
+
+            {% if current_user.is_authenticated %}
+            <!-- Legal Input Section -->
+            <div class="card pixel-input-card shadow-lg mb-5">
+                <div class="card-body p-4">
+                    <h2 class="card-title pixel-card-title text-center mb-4">
+                        <i class="fas fa-gavel me-2"></i>Enter Legal Question
+                    </h2>
+                    
+                    <form action="{{ url_for('generate') }}" method="POST" class="legal-input-form">
+                        <div class="mb-4">
+                            <label for="topic" class="form-label pixel-label">Legal Topic or Question:</label>
+                            <textarea class="form-control pixel-input" 
+                                    id="topic" 
+                                    name="topic" 
+                                    rows="3" 
+                                    placeholder="e.g., Should the death penalty be abolished? What are the arguments for and against abortion rights?"
+                                    required></textarea>
+                            <div class="form-text pixel-help-text">
+                                <i class="fas fa-lightbulb me-1"></i>
+                                Enter any legal topic, constitutional question, or policy debate
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="submit" class="btn pixel-btn-primary btn-lg">
+                                <i class="fas fa-rocket me-2"></i>Generate Arguments
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Predefined Topics -->
+            <div class="card pixel-topics-card shadow mb-5">
+                <div class="card-body p-4">
+                    <h3 class="card-title pixel-card-title text-center mb-4">
+                        <i class="fas fa-star me-2"></i>Quick Start Topics
+                    </h3>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="topic-chip" onclick="fillTopic('Should the Uniform Commercial Code be modernized for digital transactions?')">
+                                <i class="fas fa-shopping-cart me-2"></i>
+                                UCC Digital Modernization
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="topic-chip" onclick="fillTopic('What are the constitutional arguments for and against abortion rights?')">
+                                <i class="fas fa-venus me-2"></i>
+                                Abortion Rights
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="topic-chip" onclick="fillTopic('Should hate speech be protected under the First Amendment?')">
+                                <i class="fas fa-comments me-2"></i>
+                                Free Speech Limits
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="topic-chip" onclick="fillTopic('Is capital punishment constitutional and effective?')">
+                                <i class="fas fa-gavel me-2"></i>
+                                Death Penalty
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="topic-chip" onclick="fillTopic('Should privacy rights extend to digital communications?')">
+                                <i class="fas fa-shield-alt me-2"></i>
+                                Digital Privacy
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="topic-chip" onclick="fillTopic('What are the legal arguments around gun control legislation?')">
+                                <i class="fas fa-balance-scale-right me-2"></i>
+                                Gun Control
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Debates (if any) -->
+            {% if recent_debates %}
+            <div class="card pixel-history-card shadow">
+                <div class="card-body p-4">
+                    <h3 class="card-title pixel-card-title text-center mb-4">
+                        <i class="fas fa-history me-2"></i>Recent Debates
+                    </h3>
+                    <div class="row">
+                        {% for debate in recent_debates %}
+                        <div class="col-md-6 mb-3">
+                            <div class="recent-debate-item">
+                                <a href="{{ url_for('workplace', id=debate.id) }}" class="text-decoration-none">
+                                    <div class="debate-preview">
+                                        <h6 class="debate-topic">{{ debate.topic[:80] }}{% if debate.topic|length > 80 %}...{% endif %}</h6>
+                                        <small class="text-muted">
+                                            <i class="fas fa-clock me-1"></i>
+                                            {{ debate.created_at.strftime('%m/%d/%Y %H:%M') }}
+                                        </small>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="text-center mt-3">
+                        <a href="{{ url_for('history') }}" class="btn pixel-btn-secondary">
+                            <i class="fas fa-list me-2"></i>View All History
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% else %}
+            <!-- Not Logged In -->
+            <div class="card pixel-auth-prompt shadow-lg">
+                <div class="card-body text-center p-5">
+                    <div class="auth-icon mb-4">
+                        <i class="fas fa-user-lock"></i>
+                    </div>
+                    <h3 class="pixel-card-title mb-3">Join the Legal Debate!</h3>
+                    <p class="lead mb-4">
+                        Create an account to generate AI-powered legal arguments and save your debate history.
+                    </p>
+                    <div class="auth-buttons">
+                        <a href="{{ url_for('auth') }}" class="btn pixel-btn-primary btn-lg me-3">
+                            <i class="fas fa-user-plus me-2"></i>Sign Up
+                        </a>
+                        <a href="{{ url_for('auth') }}" class="btn pixel-btn-secondary btn-lg">
+                            <i class="fas fa-sign-in-alt me-2"></i>Login
+                        </a>
+                    </div>
+                    <p class="mt-4 text-muted">
+                        <small>Experience the future of legal research with pixel-perfect arguments!</small>
+                    </p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function fillTopic(topic) {
+    const topicTextarea = document.getElementById('topic');
+    if (topicTextarea) {
+        topicTextarea.value = topic;
+        topicTextarea.focus();
+        // Smooth scroll to input
+        topicTextarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+}
+
+// Add some interactive effects
+document.addEventListener('DOMContentLoaded', function() {
+    // Topic chip hover effects
+    const topicChips = document.querySelectorAll('.topic-chip');
+    topicChips.forEach(chip => {
+        chip.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px) scale(1.02)';
+        });
+        chip.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+    
+    // Form submission loading state
+    const form = document.querySelector('.legal-input-form');
+    if (form) {
+        form.addEventListener('submit', function() {
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Generating...';
+            submitBtn.disabled = true;
+        });
+    }
+});
+</script>
+{% endblock %}
