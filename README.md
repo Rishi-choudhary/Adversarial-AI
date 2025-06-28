@@ -23,6 +23,25 @@ The Adversarial Legal Argument Generator enables students, journalists, and lega
 
 ---
 
+## 🌐 Live Deployment
+
+You can access the Adversarial Legal Argument Generator online here:
+
+🔗 **[https://adversarial-ai.onrender.com/](https://adversarial-ai.onrender.com/)**
+
+This live version is hosted on **Render** and fully supports all major features, including:
+- Legal topic input
+- Pro vs Con generation
+- Split-screen display
+- Case citation support
+- User-friendly UI
+
+Check it out and test the system with your own legal questions!
+
+---
+
+
+
 ## 🛠 Tech Stack
 
 ### AI + Retrieval Layer
