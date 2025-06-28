@@ -1,23 +1,20 @@
-// Main JavaScript for Pixel Legal Argument Generator
-
-// Global variables
 let isGenerating = false;
 let currentDebate = null;
 
-// Initialize the application
+
 document.addEventListener('DOMContentLoaded', function() {
     initializeAnimations();
     initializeInteractions();
     initializeForms();
     initializeAccessibility();
     
-    // Add some pixel magic!
+    
     createPixelParticles();
 });
 
-// Animation Initialization
+
 function initializeAnimations() {
-    // Bounce icons
+    
     const bounceIcons = document.querySelectorAll('.bounce-icon, .gavel-bounce');
     bounceIcons.forEach(icon => {
         icon.addEventListener('mouseenter', function() {
@@ -28,7 +25,7 @@ function initializeAnimations() {
         });
     });
     
-    // Stagger card animations
+   
     const cards = document.querySelectorAll('.card');
     cards.forEach((card, index) => {
         card.style.opacity = '0';
@@ -42,23 +39,23 @@ function initializeAnimations() {
     });
 }
 
-// Interaction Initialization
+
 function initializeInteractions() {
-    // Topic chip interactions
+    
     const topicChips = document.querySelectorAll('.topic-chip');
     topicChips.forEach(chip => {
         chip.addEventListener('click', function() {
             const topic = this.textContent.trim();
             fillTopicInput(topic);
             
-            // Add click effect
+            
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
                 this.style.transform = '';
             }, 150);
         });
         
-        // Hover sound effect (visual feedback)
+        
         chip.addEventListener('mouseenter', function() {
             this.style.boxShadow = '0 8px 16px rgba(141, 180, 212, 0.3)';
         });
@@ -68,7 +65,7 @@ function initializeInteractions() {
         });
     });
     
-    // Button hover effects
+    
     const pixelButtons = document.querySelectorAll('[class*="pixel-btn"]');
     pixelButtons.forEach(button => {
         button.addEventListener('mouseenter', function() {
@@ -81,9 +78,9 @@ function initializeInteractions() {
     });
 }
 
-// Form Initialization
+
 function initializeForms() {
-    // Legal input form
+    
     const legalForm = document.querySelector('.legal-input-form');
     if (legalForm) {
         legalForm.addEventListener('submit', function(e) {
@@ -103,24 +100,24 @@ function initializeForms() {
         });
     }
     
-    // Auth forms
+    
     const authForms = document.querySelectorAll('.auth-form');
     authForms.forEach(form => {
         form.addEventListener('submit', function(e) {
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalHTML = submitBtn.innerHTML;
             
-            // Validate form
+            
             if (!validateAuthForm(this)) {
                 e.preventDefault();
                 return;
             }
             
-            // Show loading state
+            
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Processing...';
             submitBtn.disabled = true;
             
-            // Re-enable after timeout
+            
             setTimeout(() => {
                 if (submitBtn.disabled) {
                     submitBtn.innerHTML = originalHTML;
@@ -131,9 +128,9 @@ function initializeForms() {
     });
 }
 
-// Accessibility Initialization
+
 function initializeAccessibility() {
-    // Keyboard navigation for topic chips
+    
     const topicChips = document.querySelectorAll('.topic-chip');
     topicChips.forEach(chip => {
         chip.setAttribute('tabindex', '0');
@@ -147,7 +144,7 @@ function initializeAccessibility() {
         });
     });
     
-    // Focus management
+    
     const inputs = document.querySelectorAll('input, textarea, button');
     inputs.forEach(input => {
         input.addEventListener('focus', function() {
@@ -162,20 +159,20 @@ function initializeAccessibility() {
     });
 }
 
-// Helper Functions
+
 function fillTopicInput(topic) {
     const topicInput = document.getElementById('topic');
     if (topicInput) {
         topicInput.value = topic;
         topicInput.focus();
         
-        // Smooth scroll to input
+        
         topicInput.scrollIntoView({ 
             behavior: 'smooth', 
             block: 'center' 
         });
         
-        // Add focus effect
+        
         topicInput.style.background = 'var(--pixel-parchment)';
         setTimeout(() => {
             topicInput.style.background = '';
@@ -192,10 +189,10 @@ function startGenerating() {
         submitBtn.innerHTML = '<i class="fas fa-cog fa-spin me-2"></i>Generating Arguments...';
         submitBtn.disabled = true;
         
-        // Create loading particles
+        
         createLoadingEffect();
         
-        // Reset after potential timeout
+        
         setTimeout(() => {
             if (isGenerating) {
                 submitBtn.innerHTML = originalHTML;
@@ -213,7 +210,7 @@ function validateAuthForm(form) {
     inputs.forEach(input => {
         const value = input.value.trim();
         
-        // Reset previous validation styles
+        
         input.classList.remove('is-invalid', 'is-valid');
         
         if (!value) {
@@ -241,7 +238,7 @@ function validateEmail(email) {
 }
 
 function showNotification(message, type = 'info') {
-    // Create notification element
+    
     const notification = document.createElement('div');
     notification.className = `alert alert-${type === 'error' ? 'danger' : type === 'success' ? 'success' : 'info'} alert-dismissible fade show pixel-alert`;
     notification.style.position = 'fixed';
@@ -261,7 +258,7 @@ function showNotification(message, type = 'info') {
     
     document.body.appendChild(notification);
     
-    // Auto-remove after 5 seconds
+    
     setTimeout(() => {
         if (notification.parentNode) {
             notification.remove();
@@ -270,7 +267,7 @@ function showNotification(message, type = 'info') {
 }
 
 function createPixelParticles() {
-    // Create subtle animated background particles
+    
     const particleContainer = document.createElement('div');
     particleContainer.style.position = 'fixed';
     particleContainer.style.top = '0';
@@ -333,7 +330,7 @@ function createLoadingEffect() {
     
     document.body.appendChild(loadingOverlay);
     
-    // Remove loading overlay when page changes
+    
     window.addEventListener('beforeunload', function() {
         const overlay = document.getElementById('loading-overlay');
         if (overlay) {
@@ -342,7 +339,7 @@ function createLoadingEffect() {
     });
 }
 
-// Copy to clipboard utility
+
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(function() {
         showNotification('Copied to clipboard!', 'success');
@@ -352,7 +349,7 @@ function copyToClipboard(text) {
     });
 }
 
-// Smooth scrolling for internal links
+
 document.addEventListener('click', function(e) {
     if (e.target.matches('a[href^="#"]')) {
         e.preventDefault();
@@ -368,7 +365,7 @@ document.addEventListener('click', function(e) {
     }
 });
 
-// Add CSS animations
+
 const style = document.createElement('style');
 style.textContent = `
     @keyframes float {
@@ -393,9 +390,9 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Performance monitoring
+
 function reportWebVitals() {
-    // Basic performance logging
+    
     window.addEventListener('load', function() {
         const loadTime = performance.now();
         console.log('Page load time:', loadTime.toFixed(2), 'ms');
@@ -406,24 +403,24 @@ function reportWebVitals() {
     });
 }
 
-// Initialize performance monitoring
+
 reportWebVitals();
 
-// Error handling
+
 window.addEventListener('error', function(e) {
     console.error('JavaScript error:', e.error);
     showNotification('An error occurred. Please refresh the page.', 'error');
 });
 
-// Service worker registration (for future PWA capabilities)
+
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
-        // Future: register service worker for offline capabilities
+        
         console.log('Service Worker support detected');
     });
 }
 
-// Export functions for testing
+
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
         fillTopicInput,

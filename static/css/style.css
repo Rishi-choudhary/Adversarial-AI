@@ -1,9 +1,9 @@
-/* Pixel Art Legal Theme CSS */
 
-/* Import Pixel Fonts */
+
+
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323:wght@400&family=Pixelify+Sans:wght@400;500;600;700&display=swap');
 
-/* Root Variables - Pastel Pixel Palette */
+
 :root {
     --pixel-dusty-blue: #8DB4D4;
     --pixel-parchment: #F4E4BC;
@@ -26,7 +26,7 @@
     --shadow-pixel: 4px 4px 0px;
 }
 
-/* Base Styles */
+
 body {
     font-family: var(--font-pixel-body);
     background: linear-gradient(135deg, var(--pixel-parchment) 0%, var(--pixel-light-grey) 100%);
@@ -35,7 +35,7 @@ body {
     line-height: 1.6;
 }
 
-/* Pixel Navigation */
+
 .pixel-nav {
     background: var(--pixel-white);
     border-bottom: var(--border-pixel) var(--pixel-primary);
@@ -77,7 +77,7 @@ body {
     font-size: 1.3rem;
 }
 
-/* Bouncing Icons */
+
 .bounce-icon {
     animation: bounce 2s infinite;
     color: var(--pixel-accent);
@@ -113,7 +113,7 @@ body {
     }
 }
 
-/* Hero Section */
+
 .hero-section {
     padding: 3rem 0;
 }
@@ -152,7 +152,7 @@ body {
     color: var(--pixel-primary);
 }
 
-/* Cards */
+
 .pixel-input-card, 
 .pixel-topics-card, 
 .pixel-history-card, 
@@ -170,7 +170,7 @@ body {
     font-size: 1rem;
 }
 
-/* Form Elements */
+
 .pixel-input {
     font-family: var(--font-pixel-body);
     border: var(--border-pixel) var(--pixel-neutral);
@@ -200,7 +200,7 @@ body {
     font-size: 1rem;
 }
 
-/* Buttons */
+
 .pixel-btn-primary {
     background: var(--pixel-primary);
     border: var(--border-pixel) var(--pixel-primary);
@@ -257,7 +257,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* Topic Chips */
+
 .topic-chip {
     background: var(--pixel-parchment);
     border: var(--border-pixel) var(--pixel-primary);
@@ -279,7 +279,7 @@ body {
     box-shadow: var(--shadow-pixel) var(--pixel-primary);
 }
 
-/* Workplace Styles */
+
 .workplace-container {
     padding: 2rem 0;
 }
@@ -399,7 +399,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Mobile Toggle */
+
 .mobile-toggle-container {
     display: none;
 }
@@ -422,7 +422,7 @@ body {
     }
 }
 
-/* Auth Styles */
+
 .auth-container {
     padding: 3rem 0;
     min-height: 80vh;
@@ -506,7 +506,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* Recent Debates */
+
 .recent-debate-item {
     background: var(--pixel-parchment);
     border: 2px solid var(--pixel-neutral);
@@ -530,7 +530,7 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* Footer */
+
 .pixel-footer {
     background: var(--pixel-dark-grey);
     color: var(--pixel-light-grey);
@@ -555,7 +555,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* Flash Messages */
+
 .pixel-alert {
     border: var(--border-pixel);
     border-radius: 8px;
@@ -581,13 +581,13 @@ body {
     color: var(--pixel-neutral);
 }
 
-/* Typewriter Effect */
+
 .typewriter-text {
     overflow: hidden;
     white-space: pre-wrap;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .pixel-title {
         font-size: 1.2rem;
@@ -614,7 +614,7 @@ body {
     }
 }
 
-/* Print Styles */
+
 @media print {
     .navbar, .footer, .topic-actions, .argument-footer {
         display: none !important;
@@ -631,7 +631,7 @@ body {
     }
 }
 
-/* Loading States */
+
 .loading {
     opacity: 0.6;
     pointer-events: none;
@@ -646,7 +646,7 @@ body {
     to { transform: rotate(360deg); }
 }
 
-/* Accessibility */
+
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -655,7 +655,7 @@ body {
     }
 }
 
-/* High contrast mode */
+
 @media (prefers-contrast: high) {
     :root {
         --pixel-primary: #0066cc;

@@ -6,7 +6,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
-# Configure logging
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -32,10 +32,10 @@ class SimpleIndianLegalKnowledgeBase:
     def _initialize_knowledge_base(self):
         """Initialize the knowledge base with TF-IDF vectors"""
         try:
-            # Prepare documents for vectorization
+            
             documents = [doc["content"] for doc in self.legal_documents]
             
-            # Create TF-IDF vectors
+            
             self.document_vectors = self.vectorizer.fit_transform(documents)
             self.is_initialized = True
             
@@ -61,19 +61,19 @@ class SimpleIndianLegalKnowledgeBase:
             return []
         
         try:
-            # Create query vector
+            
             query_vector = self.vectorizer.transform([query])
             
-            # Calculate similarities
+            
             similarities = cosine_similarity(query_vector, self.document_vectors).flatten()
             
-            # Get top results
+            
             top_indices = similarities.argsort()[-n_results:][::-1]
             
-            # Format results
+            
             results = []
             for idx in top_indices:
-                if similarities[idx] > 0.05:  # Minimum similarity threshold
+                if similarities[idx] > 0.05:  
                     doc = self.legal_documents[idx]
                     results.append({
                         "content": doc["content"],
@@ -155,7 +155,7 @@ class SimpleIndianLegalKnowledgeBase:
             logger.error(f"Failed to get categories: {e}")
             return []
 
-# Global instance
+
 simple_legal_kb = None
 
 def get_simple_legal_knowledge_base():

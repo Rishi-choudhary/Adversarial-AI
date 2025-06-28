@@ -9,7 +9,7 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(256))
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     
-    # Relationship to debates
+    
     debates = db.relationship('Debate', backref='user', lazy=True)
 
 class Debate(db.Model):
