@@ -9,7 +9,7 @@ import json
 # client = genai.Client(api_key="AIzaSyCC6pSLGsaZqPRyM4y5b42LP1jy7kCFI-U")
 
 
-genai.configure(api_key="AIzaSyCC6pSLGsaZqPRyM4y5b42LP1jy7kCFI-U")
+genai.configure(api_key="YOUR_GEMINI_KEY")
 import json
 import logging
 
