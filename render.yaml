@@ -3,7 +3,7 @@ services:
     name: legal-arg-generator
     env: python
     buildCommand: ""
-    startCommand: gunicorn app:app
+    startCommand: gunicorn main:app
     envVars:
       - key: FLASK_ENV
         value: production
