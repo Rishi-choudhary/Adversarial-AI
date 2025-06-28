@@ -1,0 +1,702 @@
+[
+  {
+    "id": "legal_topic_001",
+    "title": "Abortion Rights",
+    "content": "The Medical Termination of Pregnancy Act, 1971 allows abortion under specific conditions, emphasizing women's autonomy. Amendments in 2021 extended permissible gestation limits for certain categories of women. While the law promotes reproductive rights, access and awareness remain uneven across the country.",
+    "category": "Reproductive Rights",
+    "act": "Medical Termination of Pregnancy Act, 1971 (Amended 2021)",
+    "keywords": [
+      "abortion laws",
+      "MTP Act",
+      "reproductive autonomy",
+      "bodily rights",
+      "women's health"
+    ]
+  },
+  {
+    "id": "legal_topic_002",
+    "title": "Uniform Civil Code",
+    "content": "The Uniform Civil Code (UCC), proposed under Article 44 of the Constitution, advocates for a common set of laws governing personal matters like marriage, divorce, and inheritance for all citizens regardless of religion. Proponents argue it promotes equality and secularism; critics raise concerns over cultural homogenization.",
+    "category": "Constitutional Law",
+    "act": "Article 44, Constitution of India",
+    "keywords": [
+      "UCC",
+      "personal law",
+      "secularism",
+      "Article 44",
+      "legal reform"
+    ]
+  },
+  {
+    "id": "legal_topic_003",
+    "title": "Caste-Based Reservation",
+    "content": "Caste-based reservation in India provides affirmative action for historically disadvantaged groups such as Scheduled Castes (SC), Scheduled Tribes (ST), and Other Backward Classes (OBC). Rooted in the Constitution, it aims to promote equal opportunity but remains a contentious issue in debates around meritocracy and social equity.",
+    "category": "Social Justice",
+    "act": "Articles 15 & 16, Constitution of India",
+    "keywords": [
+      "reservation",
+      "affirmative action",
+      "caste system",
+      "social equality",
+      "SC/ST/OBC"
+    ]
+  },
+  {
+    "id": "legal_topic_004",
+    "title": "Same-Sex Marriage",
+    "content": "While the Supreme Court decriminalized homosexuality in 2018, same-sex marriage remains legally unrecognized. Current petitions before the courts challenge the constitutionality of denying marriage equality to LGBTQ+ individuals under Articles 14, 15, and 21.",
+    "category": "LGBTQ+ Rights",
+    "act": "Navtej Singh Johar v. Union of India (2018); Articles 14, 15, 21",
+    "keywords": [
+      "LGBTQ+",
+      "marriage equality",
+      "Section 377",
+      "same-sex rights",
+      "constitutional equality"
+    ]
+  },
+  {
+    "id": "legal_topic_005",
+    "title": "Marital Rape Laws",
+    "content": "Indian Penal Code Section 375 excludes marital rape from the definition of rape, stating that intercourse by a man with his wife (not under 18) is not rape. Legal and feminist activists argue this exception violates women’s rights to bodily autonomy and dignity.",
+    "category": "Women's Rights",
+    "act": "Section 375, Indian Penal Code; Article 21, Constitution of India",
+    "keywords": [
+      "marital rape",
+      "IPC Section 375",
+      "bodily autonomy",
+      "gender justice",
+      "exception 2"
+    ]
+  },
+  {
+    "id": "legal_topic_006",
+    "title": "Death Penalty",
+    "content": "The death penalty remains a legal form of punishment in India for the 'rarest of rare' crimes, as upheld in the Bachan Singh case. Critics argue it violates human rights and is prone to judicial errors, while supporters claim it deters heinous crimes.",
+    "category": "Criminal Law",
+    "act": "Indian Penal Code; Bachan Singh v. State of Punjab (1980)",
+    "keywords": [
+      "capital punishment",
+      "death penalty",
+      "rarest of rare",
+      "criminal justice",
+      "Bachan Singh ruling"
+    ]
+  },
+  {
+    "id": "legal_topic_007",
+    "title": "Freedom of Speech",
+    "content": "Article 19(1)(a) guarantees freedom of speech and expression to all citizens. This right is subject to reasonable restrictions under Article 19(2), including public order and national security. The balance between expression and regulation remains a constant debate.",
+    "category": "Fundamental Rights",
+    "act": "Article 19(1)(a) and 19(2), Constitution of India",
+    "keywords": [
+      "free speech",
+      "expression",
+      "Article 19",
+      "reasonable restrictions",
+      "fundamental rights"
+    ]
+  },
+  {
+    "id": "legal_topic_008",
+    "title": "Sedition Laws",
+    "content": "Section 124A of the IPC defines sedition and punishes acts that incite hatred or disaffection against the government. Critics argue that sedition laws are colonial remnants often used to suppress dissent. The Supreme Court is reviewing its constitutional validity.",
+    "category": "Criminal Law",
+    "act": "Section 124A, Indian Penal Code",
+    "keywords": [
+      "sedition",
+      "Section 124A",
+      "colonial law",
+      "free speech",
+      "national security"
+    ]
+  },
+  {
+    "id": "legal_topic_009",
+    "title": "Right to Privacy",
+    "content": "Declared a fundamental right under Article 21 by the Supreme Court in the Puttaswamy judgment, the right to privacy protects individuals against arbitrary state intrusion. It forms the foundation for data protection, bodily autonomy, and digital rights.",
+    "category": "Fundamental Rights",
+    "act": "Justice K.S. Puttaswamy v. Union of India (2017); Article 21",
+    "keywords": [
+      "privacy",
+      "Puttaswamy case",
+      "Article 21",
+      "digital rights",
+      "bodily autonomy"
+    ]
+  },
+  {
+    "id": "legal_topic_010",
+    "title": "Religious Freedom",
+    "content": "Articles 25 to 28 guarantee the right to profess, practice, and propagate religion, subject to public order and morality. These rights are central to India’s secular identity but face friction when religious customs conflict with other constitutional principles.",
+    "category": "Fundamental Rights",
+    "act": "Articles 25–28, Constitution of India",
+    "keywords": [
+      "religious freedom",
+      "Article 25",
+      "secularism",
+      "fundamental rights",
+      "constitutional morality"
+    ]
+  },
+  {
+    "id": "legal_topic_011",
+    "title": "Anti-Conversion Laws",
+    "content": "Anti-conversion laws in India aim to regulate religious conversions and prohibit conversions by force, fraud, or inducement. These laws have been enacted in several states and have sparked debate over religious freedom and the misuse of the law to target minorities.",
+    "category": "Civil Rights & Religion",
+    "act": "Various State Acts; Article 25 of the Constitution",
+    "keywords": [
+      "religious conversion",
+      "freedom of religion",
+      "Article 25",
+      "forced conversion",
+      "state legislation"
+    ]
+  },
+  {
+    "id": "legal_topic_012",
+    "title": "Mob Lynching",
+    "content": "Mob lynching refers to extrajudicial killings carried out by a group, often under the pretext of cow protection or religious/caste intolerance. The Supreme Court has urged states to enact specific laws, yet a central anti-lynching law is still pending.",
+    "category": "Criminal Law",
+    "act": "Tehseen S. Poonawalla v. Union of India (2018); IPC Sections 302, 34",
+    "keywords": [
+      "lynching",
+      "mob violence",
+      "hate crimes",
+      "Supreme Court directives",
+      "cow protection"
+    ]
+  },
+  {
+    "id": "legal_topic_013",
+    "title": "Triple Talaq",
+    "content": "Triple Talaq, or instant divorce in Islam, was declared unconstitutional in the Shayara Bano case. It was subsequently criminalized through legislation in 2019, aiming to protect Muslim women's rights and promote gender justice.",
+    "category": "Family & Personal Laws",
+    "act": "Muslim Women (Protection of Rights on Marriage) Act, 2019",
+    "keywords": [
+      "Triple Talaq",
+      "instant divorce",
+      "Shayara Bano case",
+      "Muslim personal law",
+      "gender equality"
+    ]
+  },
+  {
+    "id": "legal_topic_014",
+    "title": "Internet Shutdowns",
+    "content": "India leads globally in internet shutdowns, often imposed for law and order concerns. The Supreme Court, in the Anuradha Bhasin case, ruled that access to the internet is part of freedom of expression under Article 19(1)(a).",
+    "category": "Digital Rights",
+    "act": "Anuradha Bhasin v. Union of India (2020); Article 19(1)(a)",
+    "keywords": [
+      "internet shutdown",
+      "freedom of expression",
+      "digital rights",
+      "Anuradha Bhasin",
+      "Article 19"
+    ]
+  },
+  {
+    "id": "legal_topic_015",
+    "title": "Surveillance vs Privacy",
+    "content": "The conflict between state surveillance and individual privacy has intensified in the digital age. Concerns over Pegasus spyware and lack of comprehensive data protection laws highlight the need for balancing national security and civil liberties.",
+    "category": "Constitutional & Digital Rights",
+    "act": "Puttaswamy Judgment (2017); IT Act, 2000",
+    "keywords": [
+      "surveillance",
+      "privacy",
+      "Pegasus",
+      "data protection",
+      "national security"
+    ]
+  },
+  {
+    "id": "legal_topic_016",
+    "title": "Right to Protest",
+    "content": "The right to peaceful protest is protected under Article 19. However, recent crackdowns and misuse of laws like UAPA have raised concerns about shrinking democratic space in India.",
+    "category": "Fundamental Rights",
+    "act": "Article 19(1)(b); Shaheen Bagh Case (Amit Sahni v. Commissioner of Police)",
+    "keywords": [
+      "right to protest",
+      "freedom of assembly",
+      "Article 19",
+      "Shaheen Bagh",
+      "UAPA"
+    ]
+  },
+  {
+    "id": "legal_topic_017",
+    "title": "Live-in Relationships",
+    "content": "Live-in relationships, while not formally recognized in personal laws, have been granted legal protection by courts in matters of maintenance and domestic violence, emphasizing adult autonomy and choice.",
+    "category": "Personal Laws & Social Justice",
+    "act": "Protection of Women from Domestic Violence Act, 2005; Supreme Court Judgments",
+    "keywords": [
+      "live-in relationships",
+      "cohabitation",
+      "domestic violence",
+      "adult autonomy",
+      "Supreme Court"
+    ]
+  },
+    {
+    "id": "legal_topic_018",
+    "title": "Minimum Age of Consent",
+    "content": "In India, the legal age of consent is 18. However, this clashes with social realities and romantic relationships among adolescents, leading to criminalization under POCSO even in consensual cases.",
+    "category": "Criminal Law & Child Protection",
+    "act": "POCSO Act, 2012",
+    "keywords": [
+      "age of consent",
+      "POCSO",
+      "child protection",
+      "teen relationships",
+      "statutory rape"
+    ]
+  },
+  {
+    "id": "legal_topic_019",
+    "title": "Media Trials",
+    "content": "Media trials can influence public opinion and judicial outcomes, undermining the presumption of innocence. Courts have criticized such coverage but lack specific legal regulation of pre-trial media behavior.",
+    "category": "Judiciary & Media Ethics",
+    "act": "Contempt of Courts Act, 1971; Article 21",
+    "keywords": [
+      "media trial",
+      "presumption of innocence",
+      "contempt of court",
+      "fair trial",
+      "press ethics"
+    ]
+  },
+  {
+    "id": "legal_topic_020",
+    "title": "Whistleblower Protection",
+    "content": "The Whistle Blowers Protection Act was passed in 2014 to protect individuals exposing corruption. However, delays in implementation and proposed amendments dilute its effectiveness and discourage reporting.",
+    "category": "Anti-Corruption & Governance",
+    "act": "Whistle Blowers Protection Act, 2014",
+    "keywords": [
+      "whistleblower",
+      "corruption",
+      "transparency",
+      "public interest",
+      "retaliation"
+    ]
+  },
+  {
+    "id": "legal_topic_021",
+    "title": "Freedom of the Press",
+    "content": "Though not explicitly mentioned in the Constitution, freedom of the press is derived from Article 19(1)(a). Increasing censorship, sedition charges, and media ownership concentration threaten press freedom.",
+    "category": "Fundamental Rights & Media",
+    "act": "Article 19(1)(a); Romesh Thappar v. State of Madras (1950)",
+    "keywords": [
+      "press freedom",
+      "Article 19",
+      "censorship",
+      "sedition",
+      "media independence"
+    ]
+  },
+  {
+    "id": "legal_topic_022",
+    "title": "LGBTQ+ Rights",
+    "content": "Section 377 was decriminalized in 2018, marking a landmark victory for LGBTQ+ rights. However, full equality in areas like marriage, adoption, and anti-discrimination laws remains pending.",
+    "category": "Human Rights",
+    "act": "Navtej Singh Johar v. Union of India (2018); Section 377 IPC",
+    "keywords": [
+      "LGBTQ+",
+      "Section 377",
+      "equality",
+      "decriminalization",
+      "Navtej Johar case"
+    ]
+  },
+  {
+    "id": "legal_topic_023",
+    "title": "Child Labor Laws",
+    "content": "India prohibits the employment of children below 14 in hazardous occupations. Amendments in 2016 allow family enterprises and entertainment work, sparking criticism over exploitation loopholes.",
+    "category": "Labour & Child Rights",
+    "act": "Child Labour (Prohibition and Regulation) Act, 1986 (amended 2016)",
+    "keywords": [
+      "child labor",
+      "hazardous work",
+      "education rights",
+      "labour law",
+      "protection"
+    ]
+  },
+  {
+    "id": "legal_topic_024",
+    "title": "Juvenile Justice",
+    "content": "Juvenile Justice laws aim to reform rather than punish. After the 2012 Delhi gang rape, amendments allowed 16-18 year olds to be tried as adults in heinous crimes under judicial discretion.",
+    "category": "Criminal & Child Law",
+    "act": "Juvenile Justice (Care and Protection of Children) Act, 2015",
+    "keywords": [
+      "juvenile justice",
+      "reformative justice",
+      "Delhi gang rape",
+      "child rights",
+      "heinous offences"
+    ]
+  },
+  {
+    "id": "legal_topic_025",
+    "title": "AFSPA and Military Powers",
+    "content": "The Armed Forces Special Powers Act grants immunity to military personnel in 'disturbed areas'. It has been criticized for human rights violations and lack of accountability, especially in the Northeast and Kashmir.",
+    "category": "Security & Human Rights",
+    "act": "AFSPA, 1958",
+    "keywords": [
+      "AFSPA",
+      "military powers",
+      "immunity",
+      "human rights",
+      "disturbed areas"
+    ]
+  },
+  {
+    "id": "legal_topic_026",
+    "title": "Gun Control",
+    "content": "India has some of the strictest gun laws globally, requiring licenses and extensive checks. Recent debates focus on regulating illegal firearms and preventing misuse in communal or political violence.",
+    "category": "Public Safety",
+    "act": "Arms Act, 1959",
+    "keywords": [
+      "gun control",
+      "Arms Act",
+      "firearms",
+      "licensing",
+      "illegal weapons"
+    ]
+  },
+  {
+    "id": "legal_topic_027",
+    "title": "Euthanasia Debate",
+    "content": "Passive euthanasia has been legalized in India through advance directives. The ethical and legal debates around active euthanasia and right to die continue to evolve.",
+    "category": "Medical Ethics & Law",
+    "act": "Common Cause v. Union of India (2018); Article 21",
+    "keywords": [
+      "euthanasia",
+      "right to die",
+      "passive euthanasia",
+      "Article 21",
+      "advance directive"
+    ]
+  },
+  {
+    "id": "legal_topic_028",
+    "title": "Data Protection Laws",
+    "content": "India's Digital Personal Data Protection Act, 2023, aims to safeguard individual data. Critics argue it lacks strong enforcement mechanisms and grants excessive government exemptions.",
+    "category": "Digital Rights",
+    "act": "Digital Personal Data Protection Act, 2023",
+    "keywords": [
+      "data protection",
+      "privacy",
+      "DPDP Act",
+      "digital rights",
+      "government access"
+    ]
+  },
+  {
+    "id": "legal_topic_029",
+    "title": "Cryptocurrency Regulation",
+    "content": "India lacks specific crypto laws, though trading is not banned. The government has introduced a 30% tax on crypto gains and is working on a regulatory framework amid concerns over scams and investor protection.",
+    "category": "Finance & Technology Law",
+    "act": "Finance Act, 2022 (crypto tax); Draft Banning of Cryptocurrency Bill (not passed)",
+    "keywords": [
+      "cryptocurrency",
+      "bitcoin",
+      "crypto tax",
+      "blockchain",
+      "digital currency"
+    ]
+  },
+  {
+  "id": "legal_topic_030",
+  "title": "Environmental Justice",
+  "content": "Environmental justice in India involves protecting vulnerable communities from ecological harm. While the judiciary has played an active role through directives and PILs, gaps remain in implementation, regulatory enforcement, and public accountability.",
+  "category": "Environmental Law",
+  "act": "Environment (Protection) Act, 1986; National Green Tribunal Act, 2010",
+  "keywords": [
+    "environmental justice",
+    "pollution",
+    "climate change",
+    "sustainability",
+    "NGT"
+  ]
+},
+{
+  "id": "legal_topic_031",
+  "title": "Climate Change Laws",
+  "content": "India’s legal response to climate change includes a mix of environmental regulations, international commitments like the Paris Agreement, and domestic initiatives such as the National Action Plan on Climate Change (NAPCC). However, the absence of a consolidated climate law raises concerns about enforceability, coordination, and long-term accountability in addressing emissions, resilience, and climate justice.",
+  "category": "Environmental Law",
+  "act": "Environment (Protection) Act, 1986; National Action Plan on Climate Change (NAPCC); Paris Agreement (ratified)",
+  "keywords": [
+    "climate change",
+    "environment",
+    "NAPCC",
+    "sustainability",
+    "climate justice"
+  ]
+},
+  {
+    "id": "legal_topic_032",
+    "title": "Secularism vs Majority",
+    "content": "India’s constitutional secularism mandates equal respect for all religions. However, political majoritarianism often challenges this balance, leading to laws or policies perceived to favor the religious majority. Legal debates revolve around whether true secularism can survive when state neutrality appears compromised.",
+    "category": "Constitutional Law",
+    "act": "Articles 14, 15, 25–28, Constitution of India",
+    "keywords": [
+      "secularism",
+      "majoritarianism",
+      "constitutional morality",
+      "religious freedom",
+      "state neutrality"
+    ]
+  },
+  {
+    "id": "legal_topic_033",
+    "title": "Digital Censorship",
+    "content": "Digital censorship involves the control or suppression of what can be accessed, published, or viewed on the internet. In India, legal tools like the IT Act, takedown notices, and content regulation guidelines often walk a thin line between protecting citizens and stifling dissent.",
+    "category": "Digital & Constitutional Rights",
+    "act": "Information Technology Act, 2000; Intermediary Guidelines Rules, 2021",
+    "keywords": [
+      "digital censorship",
+      "IT Act",
+      "free speech",
+      "online regulation",
+      "platform liability"
+    ]
+  },
+  {
+    "id": "legal_topic_034",
+    "title": "Gig Workers' Rights",
+    "content": "Gig economy workers lack traditional employment benefits like job security, health insurance, and pensions. Recent steps like including gig workers in the Code on Social Security, 2020, aim to address this precariousness, though implementation challenges persist.",
+    "category": "Labour & Employment Law",
+    "act": "Code on Social Security, 2020",
+    "keywords": [
+      "gig economy",
+      "platform workers",
+      "labour rights",
+      "social security",
+      "Uber drivers"
+    ]
+  },
+  {
+    "id": "legal_topic_035",
+    "title": "Women's Safety Laws",
+    "content": "India has enacted multiple laws to ensure women’s safety, including laws against sexual harassment, domestic violence, and acid attacks. However, enforcement remains inconsistent, and victims often face social stigma and procedural hurdles in accessing justice.",
+    "category": "Women’s Rights",
+    "act": "Sexual Harassment of Women at Workplace Act, 2013; IPC Sections 354, 376",
+    "keywords": [
+      "women's safety",
+      "sexual harassment",
+      "domestic violence",
+      "gender-based violence",
+      "legal protection"
+    ]
+  },
+  {
+    "id": "legal_topic_036",
+    "title": "Transgender Rights",
+    "content": "The Transgender Persons (Protection of Rights) Act, 2019 provides legal recognition and anti-discrimination protections. Critics argue it fails to address real inclusion due to its flawed certification process and lack of reservation or healthcare mandates.",
+    "category": "LGBTQ+ Rights",
+    "act": "Transgender Persons (Protection of Rights) Act, 2019",
+    "keywords": [
+      "transgender",
+      "gender identity",
+      "LGBTQ+",
+      "anti-discrimination",
+      "legal recognition"
+    ]
+  },
+  {
+    "id": "legal_topic_037",
+    "title": "Artificial Intelligence Laws",
+    "content": "AI raises complex legal questions about accountability, ethics, bias, and job displacement. India currently lacks a dedicated AI law, though policy think tanks and NITI Aayog have released guidelines on responsible AI. The absence of binding regulation raises concerns.",
+    "category": "Tech Law & Ethics",
+    "act": "Policy Guidelines (NITI Aayog); No codified law yet",
+    "keywords": [
+      "AI ethics",
+      "automated decision-making",
+      "algorithmic bias",
+      "future of work",
+      "responsible AI"
+    ]
+  },
+  {
+    "id": "legal_topic_038",
+    "title": "Social Media Regulation",
+    "content": "India’s regulation of social media platforms has tightened through the IT Rules, 2021, mandating grievance redressal, takedowns, and traceability of messages. Critics argue it enables censorship and surveillance while tech giants question compliance burdens.",
+    "category": "Digital Governance",
+    "act": "Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021",
+    "keywords": [
+      "social media",
+      "regulation",
+      "IT Rules",
+      "platform accountability",
+      "online speech"
+    ]
+  },
+  {
+    "id": "legal_topic_039",
+    "title": "Electoral Reforms",
+    "content": "India's electoral reforms aim to enhance transparency, curb black money, and promote voter participation. Proposals include simultaneous elections, state funding of polls, and greater scrutiny of Electoral Bonds, which are criticized for opacity.",
+    "category": "Election & Democracy",
+    "act": "Representation of the People Act, 1951; Election Laws (Amendment) Act, 2021",
+    "keywords": [
+      "electoral reform",
+      "Electoral Bonds",
+      "transparency",
+      "voting rights",
+      "free and fair elections"
+    ]
+  },
+  {
+    "id": "legal_topic_040",
+    "title": "One Nation, One Election",
+    "content": "This proposal seeks synchronized elections across Parliament and State Assemblies to reduce costs and enhance governance. While seen as efficient, critics worry it undermines federalism and regional democratic expression.",
+    "category": "Election Reform",
+    "act": "Not codified yet; Policy proposal under consideration",
+    "keywords": [
+      "simultaneous elections",
+      "federalism",
+      "democracy",
+      "election reform",
+      "One Nation One Election"
+    ]
+  },
+  {
+    "id": "legal_topic_041",
+    "title": "Citizenship Laws",
+    "content": "India’s citizenship framework came under intense scrutiny following the CAA 2019, which offers fast-track citizenship to non-Muslim migrants from select countries. Critics claim it violates secular principles and may marginalize Muslims when combined with NRC exercises.",
+    "category": "Citizenship & Rights",
+    "act": "Citizenship (Amendment) Act, 2019; Citizenship Act, 1955",
+    "keywords": [
+      "citizenship",
+      "CAA",
+      "NRC",
+      "secularism",
+      "immigration"
+    ]
+  },
+  {
+    "id": "legal_topic_042",
+    "title": "National Security vs Civil Rights",
+    "content": "Laws such as UAPA, NSA, and AFSPA are invoked to protect national security but have raised concerns for curtailing civil liberties. Courts have increasingly examined whether state actions maintain a fair balance with individual rights under Articles 14 and 21.",
+    "category": "Security & Civil Liberties",
+    "act": "Unlawful Activities (Prevention) Act, 1967; National Security Act, 1980",
+    "keywords": [
+      "national security",
+      "civil rights",
+      "UAPA",
+      "NSA",
+      "fundamental rights"
+    ]
+  },
+  {
+    "id": "legal_topic_043",
+    "title": "Caste Discrimination",
+    "content": "Despite constitutional guarantees, caste discrimination persists in education, employment, and social interactions. Atrocities against Dalits remain prevalent, prompting calls for stricter enforcement of SC/ST laws and broader societal change.",
+    "category": "Social Justice",
+    "act": "Scheduled Castes and Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+    "keywords": [
+      "caste discrimination",
+      "Dalit rights",
+      "reservation",
+      "social justice",
+      "untouchability"
+    ]
+  },
+  {
+    "id": "legal_topic_044",
+    "title": "Personal Data Ownership",
+    "content": "The idea that individuals should own their personal data is gaining ground. While the DPDP Act, 2023 gives some control to users, many believe it falls short of true data sovereignty due to government exemptions and lack of portability rights.",
+    "category": "Digital Rights",
+    "act": "Digital Personal Data Protection Act, 2023",
+    "keywords": [
+      "data ownership",
+      "privacy",
+      "DPDP",
+      "digital sovereignty",
+      "user consent"
+    ]
+  },
+  {
+    "id": "legal_topic_045",
+    "title": "Media Regulation",
+    "content": "Media regulation in India involves a mix of self-regulation and statutory control through the Cable TV Act, Press Council, and new IT Rules. While meant to ensure ethics and accuracy, these often clash with press freedom.",
+    "category": "Media & Democracy",
+    "act": "Cable Television Networks (Regulation) Act, 1995; IT Rules, 2021",
+    "keywords": [
+      "media regulation",
+      "press freedom",
+      "news ethics",
+      "broadcast rules",
+      "content control"
+    ]
+  },
+  {
+    "id": "legal_topic_046",
+    "title": "Defamation Laws",
+    "content": "Defamation in India can be both civil and criminal, raising debates on whether criminal defamation infringes on free speech. Section 499 of IPC has been upheld but faces increasing calls for decriminalization.",
+    "category": "Civil & Criminal Law",
+    "act": "Section 499–500, Indian Penal Code; Article 19(1)(a)",
+    "keywords": [
+      "defamation",
+      "reputation",
+      "free speech",
+      "criminal defamation",
+      "libel and slander"
+    ]
+  },
+  {
+    "id": "legal_topic_047",
+    "title": "Blasphemy and Free Speech",
+    "content": "India does not have a formal blasphemy law, but laws like Sections 295A of IPC are used to prosecute speech that offends religious sentiments. Critics argue these suppress dissent and artistic expression.",
+    "category": "Freedom of Expression",
+    "act": "Section 295A, Indian Penal Code",
+    "keywords": [
+      "blasphemy",
+      "religious sentiments",
+      "freedom of expression",
+      "295A IPC",
+      "hate speech"
+    ]
+  },
+  {
+    "id": "legal_topic_048",
+    "title": "Interfaith Marriages",
+    "content": "Interfaith marriages are legally allowed under the Special Marriage Act, 1954. However, procedural hurdles and rising opposition through ‘love jihad’ laws in some states have created a hostile environment.",
+    "category": "Family Law",
+    "act": "Special Marriage Act, 1954",
+    "keywords": [
+      "interfaith marriage",
+      "love jihad",
+      "Special Marriage Act",
+      "religious freedom",
+      "social acceptance"
+    ]
+  },
+  {
+    "id": "legal_topic_049",
+    "title": "Education Reservation",
+    "content": "Education reservations aim to correct historical injustices and promote inclusion. The 10% EWS quota introduced a new layer of complexity, raising constitutional and social equity debates.",
+    "category": "Educational Policy",
+    "act": "Constitution (103rd Amendment) Act, 2019; Articles 15(4), 15(5), 15(6)",
+    "keywords": [
+      "education",
+      "reservation",
+      "EWS quota",
+      "affirmative action",
+      "social equity"
+    ]
+  },
+  {
+    "id": "legal_topic_050",
+    "title": "Fake News Laws",
+    "content": "The rise of fake news has prompted legal action via IT laws and fact-check mechanisms. However, recent proposals to empower government fact-check units have sparked fears of overreach and censorship.",
+    "category": "Information Law",
+    "act": "Information Technology Act, 2000; IT Rules, 2023 (Proposed)",
+    "keywords": [
+      "fake news",
+      "fact-checking",
+      "misinformation",
+      "IT Act",
+      "censorship"
+    ]
+  }
+]

@@ -35,23 +35,23 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     {% if current_user.is_authenticated %}
-                    <li class="nav-item">
+                    <li class="nav-item mx-2">
                         <a class="nav-link pixel-nav-link" href="{{ url_for('index') }}">
                             <i class="fas fa-home me-1"></i>Home
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mx-2">
                         <a class="nav-link pixel-nav-link" href="{{ url_for('history') }}">
                             <i class="fas fa-history me-1"></i>History
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mx-2">
                         <a class="nav-link pixel-nav-link" href="{{ url_for('logout') }}">
                             <i class="fas fa-sign-out-alt me-1"></i>Logout
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <span class="navbar-text pixel-user">
+                    <li class="nav-item mx-2  d-flex align-items-center">
+                        <span class="navbar-text pixel-user d-flex align-items-center">
                             <i class="fas fa-user-circle me-1"></i>{{ current_user.username }}
                         </span>
                     </li>
