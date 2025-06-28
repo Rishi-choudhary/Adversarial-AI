@@ -1,0 +1,82 @@
+[
+  {
+    "id": "brown_v_board_of_education",
+    "title": "Brown v. Board of Education",
+    "area": "Constitutional Law",
+    "year": 1954,
+    "importance": "High",
+    "summary": "Landmark Supreme Court case that declared state laws establishing separate public schools for black and white students to be unconstitutional. The decision overturned the Plessy v. Ferguson decision of 1896, which allowed state-sponsored segregation. The Court ruled that 'separate educational facilities are inherently unequal,' establishing the legal precedent that separate but equal provisions of state laws violate the Equal Protection Clause of the Fourteenth Amendment."
+  },
+  {
+    "id": "miranda_v_arizona",
+    "title": "Miranda v. Arizona",
+    "area": "Criminal Law",
+    "year": 1966,
+    "importance": "High",
+    "summary": "Supreme Court case that established the requirement that law enforcement officers inform suspects in custody of their constitutional rights before interrogation. The case established the famous 'Miranda rights' including the right to remain silent, the right to an attorney, and the warning that anything said can be used in court. This ruling protects individuals' Fifth Amendment right against self-incrimination and Sixth Amendment right to counsel."
+  },
+  {
+    "id": "roe_v_wade",
+    "title": "Roe v. Wade",
+    "area": "Constitutional Law",
+    "year": 1973,
+    "importance": "High",
+    "summary": "Landmark Supreme Court case that established a constitutional right to abortion. The Court ruled that the Constitution, through the Fourteenth Amendment's concept of personal liberty and restrictions on state action, protects against state prohibition or regulation of abortion during the first trimester of pregnancy. The decision has been central to debates about reproductive rights and the scope of constitutional privacy rights."
+  },
+  {
+    "id": "marbury_v_madison",
+    "title": "Marbury v. Madison",
+    "area": "Constitutional Law",
+    "year": 1803,
+    "importance": "High",
+    "summary": "Foundational Supreme Court case that established the principle of judicial review, giving federal courts the power to declare legislative and executive acts unconstitutional. Chief Justice John Marshall's opinion established that the Constitution is the supreme law of the land and that the Supreme Court has the ultimate authority to interpret the Constitution. This case fundamentally shaped the balance of power among the three branches of government."
+  },
+  {
+    "id": "gideon_v_wainwright",
+    "title": "Gideon v. Wainwright",
+    "area": "Criminal Law",
+    "year": 1963,
+    "importance": "High",
+    "summary": "Supreme Court case that established the right to counsel for defendants in criminal cases. The Court ruled unanimously that the Sixth Amendment's guarantee of counsel is a fundamental right essential to a fair trial and applies to felony prosecutions in state courts through the Fourteenth Amendment. This decision ensured that states must provide attorneys for defendants who cannot afford legal representation."
+  },
+  {
+    "id": "new_york_times_v_sullivan",
+    "title": "New York Times Co. v. Sullivan",
+    "area": "First Amendment",
+    "year": 1964,
+    "importance": "High",
+    "summary": "Landmark Supreme Court case that established the 'actual malice' standard for libel cases involving public officials. The Court ruled that the First Amendment protects the publication of all statements about public officials' conduct unless they are made with actual malice - knowledge of falsity or reckless disregard for the truth. This decision significantly strengthened freedom of the press and public debate about government officials."
+  },
+  {
+    "id": "loving_v_virginia",
+    "title": "Loving v. Virginia",
+    "area": "Civil Rights",
+    "year": 1967,
+    "importance": "High",
+    "summary": "Supreme Court case that struck down laws banning interracial marriage. The Court ruled unanimously that Virginia's Racial Integrity Act of 1924, which prohibited interracial marriage, violated the Equal Protection and Due Process Clauses of the Fourteenth Amendment. The decision established marriage as a fundamental civil right and applied strict scrutiny to racial classifications in law."
+  },
+  {
+    "id": "tinker_v_des_moines",
+    "title": "Tinker v. Des Moines",
+    "area": "First Amendment",
+    "year": 1969,
+    "importance": "Medium",
+    "summary": "Supreme Court case that established students' rights to free speech in public schools. The Court ruled that students do not 'shed their constitutional rights to freedom of speech or expression at the schoolhouse gate.' The case arose when students wore black armbands to protest the Vietnam War and were suspended. The Court held that school officials cannot censor student expression unless it substantially disrupts the school environment."
+  },
+  {
+    "id": "mapp_v_ohio",
+    "title": "Mapp v. Ohio",
+    "area": "Criminal Law",
+    "year": 1961,
+    "importance": "Medium",
+    "summary": "Supreme Court case that applied the Fourth Amendment's exclusionary rule to state courts. The Court ruled that evidence obtained in violation of the Fourth Amendment's protection against unreasonable searches and seizures cannot be used in state criminal prosecutions. This decision extended the federal exclusionary rule established in Weeks v. United States to state proceedings, strengthening Fourth Amendment protections nationwide."
+  },
+  {
+    "id": "katz_v_us",
+    "title": "Katz v. United States",
+    "area": "Privacy Rights",
+    "year": 1967,
+    "importance": "Medium",
+    "summary": "Supreme Court case that expanded Fourth Amendment protections to include reasonable expectations of privacy. The Court ruled that the Fourth Amendment protects people, not just physical spaces, establishing the 'reasonable expectation of privacy' test. This case modernized Fourth Amendment jurisprudence for the electronic age and established that wiretapping constitutes a search under the Fourth Amendment when it violates reasonable privacy expectations."
+  }
+]

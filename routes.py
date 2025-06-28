@@ -1,9 +1,12 @@
+# routes.py
+
 from flask import render_template, request, redirect, url_for, session, flash, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from app import app, db
 from models import User, Debate
-from gemini_service import generate_legal_arguments
+from gemini_service import generate_legal_arguments  # ✅ Correct import
+
 import logging
 
 # Initialize Flask-Login
@@ -40,13 +43,11 @@ def auth():
                 flash('Invalid username or password', 'error')
         
         elif action == 'signup':
-            # Check if user exists
             if User.query.filter_by(username=username).first():
                 flash('Username already exists', 'error')
             elif User.query.filter_by(email=email).first():
                 flash('Email already registered', 'error')
             else:
-                # Create new user
                 user = User(
                     username=username,
                     email=email,
@@ -76,10 +77,8 @@ def generate():
         return redirect(url_for('index'))
     
     try:
-        # Generate arguments using Gemini AI
-        arguments = generate_legal_arguments(topic)
-        
-        # Save to database
+        arguments = generate_legal_arguments(topic)  # ✅ Direct function call
+        print(f"Generated arguments: {arguments}")  # Debugging output
         debate = Debate(
             user_id=current_user.id,
             topic=topic,
@@ -96,7 +95,7 @@ def generate():
     
     except Exception as e:
         logging.error(f"Error generating arguments: {e}")
-        flash('Error generating arguments. Please try again.', 'error')
+        flash(f'Error generating arguments: {e}. Please try again.', 'error')
         return redirect(url_for('index'))
 
 @app.route('/workplace')
