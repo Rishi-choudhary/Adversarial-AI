@@ -4,15 +4,9 @@ import google.generativeai as genai
 from google.generativeai import types
 from simple_knowledge_base import get_simple_legal_knowledge_base
 import json
-
-# Initialize Gemini client
-# client = genai.Client(api_key="AIzaSyCC6pSLGsaZqPRyM4y5b42LP1jy7kCFI-U")
-
-
 genai.configure(api_key="YOUR_GEMINI_KEY")
 import json
 import logging
-
 import os
 import logging
 import google.generativeai as genai
@@ -20,8 +14,6 @@ from google.generativeai import types
 from simple_knowledge_base import get_simple_legal_knowledge_base
 import json
 import re
-
-# Configure Gemini client
 genai.configure(api_key="AIzaSyCC6pSLGsaZqPRyM4y5b42LP1jy7kCFI-U")
 
 import os
@@ -38,33 +30,33 @@ genai.configure(api_key="AIzaSyCC6pSLGsaZqPRyM4y5b42LP1jy7kCFI-U")
 def extract_json_from_text(text):
     """Extract and clean JSON string from Gemini output, handling Markdown fences."""
     try:
-        # Remove markdown code fences if present
+        
         text = text.strip()
         if text.startswith("```json") or text.startswith("```"):
             text = re.sub(r"^```(?:json)?\s*", "", text)
             text = re.sub(r"\s*```$", "", text)
 
-        # Fix smart quotes and newlines if needed
+        
         text = text.replace("“", '"').replace("”", '"').replace("’", "'")
 
-        # Try to extract JSON block explicitly
+        
         json_match = re.search(r'{.*}', text, re.DOTALL)
         if json_match:
             return json.loads(json_match.group())
 
-        return json.loads(text)  # fallback to raw load
+        return json.loads(text)  
     except json.JSONDecodeError as e:
         logging.error(f"JSON decode error: {e}")
         return None
 
 def generate_legal_arguments(topic):
     try:
-        # 1. Get knowledge base context
+        
         legal_kb = get_simple_legal_knowledge_base()
         context = legal_kb.get_legal_context_for_topic(topic, max_results=3)
         print(f"Context for topic '{topic}': {context}")
 
-        # 2. Construct prompt
+        
         user_prompt = f"""
 You are a legal expert who provides balanced, well-researched arguments on legal topics.
 
@@ -86,11 +78,11 @@ Return only a JSON object in this format:
 }}
 """
 
-        # 3. Send to Gemini
+        #toGemini
         model = genai.GenerativeModel("gemini-2.5-flash")
         response = model.generate_content([user_prompt])
 
-        # 4. Safely extract response content
+        
         if response.candidates:
             parts = response.candidates[0].content.parts
             if parts:
@@ -122,7 +114,7 @@ def generate_fallback_arguments(topic):
         response = model.generate_content(prompt)
         print(f"Fallback response: {response.text}")
         if response.text:
-            # Simple text parsing
+            
             text = response.text
             if "Pro:" in text and "Con:" in text:
                 parts = text.split("Con:")
@@ -130,12 +122,12 @@ def generate_fallback_arguments(topic):
                 con_part = parts[1].strip()
                 return {'pro': pro_part, 'con': con_part}
             else:
-                # Split by paragraphs
+                
                 paragraphs = text.split('\n\n')
                 if len(paragraphs) >= 2:
                     return {'pro': paragraphs[0], 'con': paragraphs[1]}
         
-        # Ultimate fallback
+        
         return {
             'pro': f"There are several compelling arguments in favor of the position on {topic}, including constitutional protections, policy benefits, and legal precedent that supports this viewpoint.",
             'con': f"However, there are also strong arguments against this position on {topic}, including potential constitutional concerns, policy drawbacks, and competing legal interpretations."

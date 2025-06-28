@@ -6,7 +6,7 @@ from models import User, Debate
 from gemini_service import generate_legal_arguments
 import logging
 
-# Initialize Flask-Login
+
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'auth'
@@ -40,13 +40,13 @@ def auth():
                 flash('Invalid username or password', 'error')
         
         elif action == 'signup':
-            # Check if user exists
+            
             if User.query.filter_by(username=username).first():
                 flash('Username already exists', 'error')
             elif User.query.filter_by(email=email).first():
                 flash('Email already registered', 'error')
             else:
-                # Create new user
+                
                 user = User(
                     username=username,
                     email=email,
@@ -76,10 +76,10 @@ def generate():
         return redirect(url_for('index'))
     
     try:
-        # Generate arguments using Gemini AI
+        
         arguments = generate_legal_arguments(topic)
         
-        # Save to database
+        
         debate = Debate(
             user_id=current_user.id,
             topic=topic,

@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="container history-container">
-    <!-- Header -->
+    
     <div class="row mb-4">
         <div class="col-12">
             <div class="history-header text-center">
@@ -23,7 +23,7 @@
     </div>
 
     {% if debates %}
-    <!-- Debates List -->
+    
     <div class="row">
         {% for debate in debates %}
         <div class="col-lg-6 mb-4">
@@ -85,7 +85,7 @@
         {% endfor %}
     </div>
 
-    <!-- Pagination (if needed in future) -->
+    
     <div class="row mt-4">
         <div class="col-12 text-center">
             <p class="text-muted">
@@ -96,7 +96,7 @@
     </div>
 
     {% else %}
-    <!-- Empty State -->
+    
     <div class="row">
         <div class="col-12">
             <div class="card empty-state-card shadow">
@@ -293,7 +293,7 @@ function copyDebateLink(debateId) {
     const url = window.location.origin + '/workplace?id=' + debateId;
     
     navigator.clipboard.writeText(url).then(function() {
-        // Show success feedback
+        
         const btn = event.target.closest('button');
         const originalHTML = btn.innerHTML;
         btn.innerHTML = '<i class="fas fa-check me-1"></i>Copied!';
@@ -305,18 +305,18 @@ function copyDebateLink(debateId) {
         }, 2000);
     }).catch(function(err) {
         console.error('Could not copy link: ', err);
-        // Fallback notification
+        
         alert('Debate link: ' + url);
     });
 }
 
 function goToTopicDebate(topic) {
-    // Redirect to home page and fill the topic
+    
     const encodedTopic = encodeURIComponent(topic);
     window.location.href = '/?topic=' + encodedTopic;
 }
 
-// Add fade-in animation to cards
+
 document.addEventListener('DOMContentLoaded', function() {
     const cards = document.querySelectorAll('.debate-history-card');
     cards.forEach((card, index) => {

@@ -6,7 +6,7 @@
 <div class="container hero-section">
     <div class="row justify-content-center">
         <div class="col-lg-10">
-            <!-- Hero Header -->
+            
             <div class="text-center mb-5 hero-header">
                 <div class="pixel-scales-large mb-4">
                     <i class="fas fa-balance-scale gavel-bounce"></i>
@@ -23,7 +23,7 @@
             </div>
 
             {% if current_user.is_authenticated %}
-            <!-- Legal Input Section -->
+            
             <div class="card pixel-input-card shadow-lg mb-5">
                 <div class="card-body p-4">
                     <h2 class="card-title pixel-card-title text-center mb-4">
@@ -54,7 +54,7 @@
                 </div>
             </div>
 
-            <!-- Predefined Topics -->
+            
             <div class="card pixel-topics-card shadow mb-5">
                 <div class="card-body p-4">
                     <h3 class="card-title pixel-card-title text-center mb-4">
@@ -101,7 +101,7 @@
                 </div>
             </div>
 
-            <!-- Recent Debates (if any) -->
+            
             {% if recent_debates %}
             <div class="card pixel-history-card shadow">
                 <div class="card-body p-4">
@@ -135,7 +135,7 @@
             {% endif %}
 
             {% else %}
-            <!-- Not Logged In -->
+            
             <div class="card pixel-auth-prompt shadow-lg">
                 <div class="card-body text-center p-5">
                     <div class="auth-icon mb-4">
@@ -171,14 +171,14 @@ function fillTopic(topic) {
     if (topicTextarea) {
         topicTextarea.value = topic;
         topicTextarea.focus();
-        // Smooth scroll to input
+        
         topicTextarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 }
 
-// Add some interactive effects
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Topic chip hover effects
+    
     const topicChips = document.querySelectorAll('.topic-chip');
     topicChips.forEach(chip => {
         chip.addEventListener('mouseenter', function() {
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Form submission loading state
+    
     const form = document.querySelector('.legal-input-form');
     if (form) {
         form.addEventListener('submit', function() {

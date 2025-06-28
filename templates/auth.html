@@ -6,7 +6,7 @@
 <div class="auth-page">
     <div class="container-fluid h-100">
         <div class="row h-100">
-            <!-- Left Side - Hero/Branding -->
+            
             <div class="col-lg-6 d-none d-lg-flex auth-hero">
                 <div class="hero-content">
                     <div class="hero-icon">
@@ -31,10 +31,10 @@
                 </div>
             </div>
 
-            <!-- Right Side - Forms -->
+            
             <div class="col-lg-6 col-12 auth-forms">
                 <div class="form-container">
-                    <!-- Mobile Header -->
+                    
                     <div class="mobile-header d-lg-none">
                         <div class="mobile-icon">
                             <i class="fas fa-balance-scale"></i>
@@ -42,7 +42,7 @@
                         <h2>Adversarial AI</h2>
                     </div>
 
-                    <!-- Tab Switcher -->
+                    
                     <div class="auth-tabs">
                         <button class="tab-btn active" data-tab="login">
                             <i class="fas fa-sign-in-alt"></i>
@@ -54,7 +54,7 @@
                         </button>
                     </div>
 
-                    <!-- Login Form -->
+                    
                     <div class="auth-form-wrapper active" id="login-form">
                         <h3 class="form-title">Welcome Back</h3>
                         <p class="form-subtitle">Enter the courtroom of AI debates</p>
@@ -96,7 +96,7 @@
                         </form>
                     </div>
 
-                    <!-- Signup Form -->
+                    
                     <div class="auth-form-wrapper" id="signup-form">
                         <h3 class="form-title">Join the Arena</h3>
                         <p class="form-subtitle">Create your legal advocate account</p>
@@ -151,7 +151,7 @@
                         </form>
                     </div>
 
-                    <!-- Back to Home -->
+                    
                     <div class="back-link">
                         <a href="{{ url_for('index') }}">
                             <i class="fas fa-arrow-left"></i>
@@ -457,22 +457,22 @@
 
 {% block scripts %}
 <script>
-// Tab switching
+
 document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', function() {
         const targetTab = this.dataset.tab;
         
-        // Update buttons
+        
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         this.classList.add('active');
         
-        // Update forms
+        
         document.querySelectorAll('.auth-form-wrapper').forEach(form => form.classList.remove('active'));
         document.getElementById(targetTab + '-form').classList.add('active');
     });
 });
 
-// Password toggle functionality
+
 function togglePassword(inputId) {
     const input = document.getElementById(inputId);
     const button = event.target.closest('button');
@@ -489,7 +489,7 @@ function togglePassword(inputId) {
     }
 }
 
-// Form validation
+
 document.querySelectorAll('.auth-form').forEach(form => {
     form.addEventListener('submit', function(e) {
         const inputs = this.querySelectorAll('input[required]');
@@ -515,13 +515,13 @@ document.querySelectorAll('.auth-form').forEach(form => {
             return;
         }
         
-        // Show loading state
+        
         const submitBtn = this.querySelector('.submit-btn');
         const originalHTML = submitBtn.innerHTML;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
         submitBtn.disabled = true;
         
-        // Re-enable after timeout
+        
         setTimeout(() => {
             if (submitBtn.disabled) {
                 submitBtn.innerHTML = originalHTML;
@@ -535,7 +535,7 @@ function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-// Input animations
+
 document.querySelectorAll('input').forEach(input => {
     input.addEventListener('focus', function() {
         this.parentElement.style.transform = 'scale(1.02)';

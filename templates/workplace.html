@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="container workplace-container">
-    <!-- Topic Header -->
+    
     <div class="row mb-4">
         <div class="col-12">
             <div class="topic-header text-center">
@@ -25,10 +25,10 @@
         </div>
     </div>
 
-    <!-- Desktop Split View -->
+    
     <div class="row arguments-container d-none d-lg-flex">
         <div class="split-scroll-container">
-            <!-- Pro Arguments -->
+            
             <div class="split-column pro-scroll me-2">
                 <div class="argument-card pro-card shadow-lg ">
                     <div class="card-header pro-header">
@@ -61,7 +61,7 @@
                 </div>
             </div>
 
-            <!-- Con Arguments -->
+            
             <div class="split-column con-scroll ms-2">
                 <div class="argument-card con-card shadow-lg ">
                     <div class="card-header con-header">
@@ -96,7 +96,7 @@
         </div>
     </div>
 
-    <!-- Mobile Toggle View -->
+    
     <div class="row d-lg-none mobile-toggle-container">
         <div class="col-12">
             <div class="mobile-argument-toggle">
@@ -138,7 +138,7 @@
         </div>
     </div>
 
-    <!-- Action Buttons -->
+   
     <div class="row mt-4">
         <div class="col-12 text-center">
             <div class="workplace-actions">
@@ -153,7 +153,7 @@
     </div>
 </div>
 
-<!-- Split Screen CSS -->
+
 <style>
 .split-scroll-container {
     height: 500px;
@@ -177,7 +177,7 @@
     border-radius: 0 0 0.5rem 0.5rem;
 }
 
-/* Optional: style scrollbars */
+
 .argument-scroll::-webkit-scrollbar {
     width: 6px;
 }
@@ -190,7 +190,7 @@
 
 {% block scripts %}
 <script>
-// Copy to clipboard
+
 function copyToClipboard(elementId) {
     const element = document.getElementById(elementId);
     const text = element.innerText;
@@ -208,7 +208,7 @@ function copyToClipboard(elementId) {
     });
 }
 
-// Mobile toggle
+
 function showMobileArgument(type) {
     const buttons = document.querySelectorAll('.mobile-argument-toggle .btn');
     buttons.forEach(btn => btn.classList.remove('active'));
@@ -218,7 +218,7 @@ function showMobileArgument(type) {
     document.getElementById(`mobile-${type}-content`).classList.add('active');
 }
 
-// Typewriter effect
+
 function typeWriterEffect(elementId, speed = 50) {
     const element = document.getElementById(elementId);
     if (!element || element.dataset.typed === 'true') return;
@@ -236,7 +236,7 @@ function typeWriterEffect(elementId, speed = 50) {
     setTimeout(typeWriter, 500);
 }
 
-// Animate cards
+
 document.addEventListener('DOMContentLoaded', function() {
     const argumentsContainer = document.querySelector('.arguments-container');
     if (argumentsContainer) {
@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 200 + (index * 200));
     });
 
-    // Synchronized scroll
+   
     const proScroll = document.getElementById('pro-scroll-content');
     const conScroll = document.getElementById('con-scroll-content');
     let isSyncingPro = false, isSyncingCon = false;
@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Print styles
+
 window.addEventListener('beforeprint', function() {
     document.body.classList.add('printing');
 });
