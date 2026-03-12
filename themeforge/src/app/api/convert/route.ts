@@ -1,36 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
-
-// Types for job management
-interface JobData {
-  id: string;
-  url: string;
-  status: 'pending' | 'processing' | 'completed' | 'failed';
-  progress: number;
-  steps: StepStatus[];
-  createdAt: Date;
-  completedAt?: Date;
-  error?: string;
-}
-
-interface StepStatus {
-  id: string;
-  label: string;
-  status: 'done' | 'active' | 'waiting';
-  detail?: string;
-}
-
-// In-memory job storage (in production, use Redis)
-declare global {
-  // eslint-disable-next-line no-var
-  var jobStore: Map<string, JobData> | undefined;
-}
-
-if (!global.jobStore) {
-  global.jobStore = new Map<string, JobData>();
-}
-
-const jobStore = global.jobStore;
+import { JobData, StepStatus, getJobStore } from '@/lib/jobStore';
 
 export async function POST(request: NextRequest) {
   try {
@@ -79,6 +49,7 @@ export async function POST(request: NextRequest) {
     };
 
     // Store job
+    const jobStore = getJobStore();
     jobStore.set(jobId, jobData);
 
     // In production, this would add the job to BullMQ queue
@@ -97,6 +68,7 @@ export async function POST(request: NextRequest) {
 
 // Simulate job processing (in production, this would be handled by the worker)
 async function simulateJobProcessing(jobId: string) {
+  const jobStore = getJobStore();
   const job = jobStore.get(jobId);
   if (!job) return;
 
@@ -139,5 +111,3 @@ async function simulateJobProcessing(jobId: string) {
   job.completedAt = new Date();
   jobStore.set(jobId, { ...job });
 }
-
-export { jobStore };

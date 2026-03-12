@@ -91,7 +91,7 @@ async function writeThemeFiles(jobId: string, theme: ThemeStructure): Promise<vo
   for (const [dir, files] of Object.entries(theme)) {
     for (const [filename, content] of Object.entries(files)) {
       const path = `${dir}/${filename}`;
-      writeOperations.push(writeFile(jobId, path, content));
+      writeOperations.push(writeFile(jobId, path, content as string | Buffer));
     }
   }
 

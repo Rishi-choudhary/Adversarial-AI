@@ -1,5 +1,4 @@
 import { Queue, Job, QueueEvents } from 'bullmq';
-import { getRedis } from '../lib/redis';
 
 export interface ConversionJob {
   id: string;
@@ -18,14 +17,25 @@ let conversionQueue: Queue | null = null;
 let queueEvents: QueueEvents | null = null;
 
 /**
+ * Get Redis connection options for BullMQ
+ */
+function getRedisOptions() {
+  const redisUrl = process.env.REDIS_URL || 'redis://localhost:6379';
+  const url = new URL(redisUrl);
+  return {
+    host: url.hostname,
+    port: parseInt(url.port) || 6379,
+    password: url.password || undefined,
+  };
+}
+
+/**
  * Get or create the conversion queue
  */
 export function getQueue(): Queue {
   if (!conversionQueue) {
-    const connection = getRedis();
-    
     conversionQueue = new Queue('themeforge-conversion', {
-      connection,
+      connection: getRedisOptions(),
       defaultJobOptions: {
         attempts: 3,
         backoff: {
@@ -51,8 +61,7 @@ export function getQueue(): Queue {
  */
 export function getQueueEvents(): QueueEvents {
   if (!queueEvents) {
-    const connection = getRedis();
-    queueEvents = new QueueEvents('themeforge-conversion', { connection });
+    queueEvents = new QueueEvents('themeforge-conversion', { connection: getRedisOptions() });
   }
   return queueEvents;
 }

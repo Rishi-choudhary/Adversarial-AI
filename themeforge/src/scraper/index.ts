@@ -90,14 +90,15 @@ export async function scrapeWebsite(
 
     // Download all assets
     let assets: DownloadResult[] = [];
+    
+    // Add discovered URLs
+    const resolvedImageUrls = imageUrls.map(u => resolveUrl(url, u));
+    const resolvedStylesheetUrls = stylesheetUrls.map(u => resolveUrl(url, u));
+    const resolvedScriptUrls = scriptUrls.map(u => resolveUrl(url, u));
+    
     if (shouldDownloadAssets) {
       onProgress?.('Downloading images...');
       const allAssetUrls = extractAssetUrls(html, url);
-      
-      // Add discovered URLs
-      const resolvedImageUrls = imageUrls.map(u => resolveUrl(url, u));
-      const resolvedStylesheetUrls = stylesheetUrls.map(u => resolveUrl(url, u));
-      const resolvedScriptUrls = scriptUrls.map(u => resolveUrl(url, u));
       
       const uniqueUrls = [
         ...new Set([
@@ -141,19 +142,6 @@ export async function scrapeWebsite(
     if (page) {
       await page.close();
     }
-  }
-
-  // Helper variables scoped for return
-  function resolvedStylesheetUrls(): string[] {
-    return stylesheetUrls.map((u: string) => resolveUrl(url, u));
-  }
-
-  function resolvedScriptUrls(): string[] {
-    return scriptUrls.map((u: string) => resolveUrl(url, u));
-  }
-
-  function resolvedImageUrls(): string[] {
-    return imageUrls.map((u: string) => resolveUrl(url, u));
   }
 }
 

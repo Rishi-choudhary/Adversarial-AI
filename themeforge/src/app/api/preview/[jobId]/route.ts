@@ -1,20 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-
-// Import job store
-declare global {
-  // eslint-disable-next-line no-var
-  var jobStore: Map<string, JobData> | undefined;
-}
-
-interface JobData {
-  id: string;
-  url: string;
-  status: 'pending' | 'processing' | 'completed' | 'failed';
-  progress: number;
-  createdAt: Date;
-  completedAt?: Date;
-  error?: string;
-}
+import { getJobStore } from '@/lib/jobStore';
 
 interface FileNode {
   name: string;
@@ -26,20 +11,13 @@ interface FileNode {
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { jobId: string } }
+  { params }: { params: Promise<{ jobId: string }> }
 ) {
-  const jobId = params.jobId;
-  const jobStore = global.jobStore;
+  const { jobId } = await params;
+  const jobStore = getJobStore();
   const searchParams = request.nextUrl.searchParams;
   const wantTree = searchParams.get('tree') === 'true';
   const filePath = searchParams.get('file');
-
-  if (!jobStore) {
-    return NextResponse.json(
-      { error: 'Job store not initialized' },
-      { status: 500 }
-    );
-  }
 
   const job = jobStore.get(jobId);
 

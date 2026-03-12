@@ -1,4 +1,5 @@
 import * as csstree from 'css-tree';
+import type { CssNode } from 'css-tree';
 
 /**
  * Extract CSS rules that apply to a specific section
@@ -14,7 +15,7 @@ export function extractSectionCSS(
     const ast = csstree.parse(fullCSS);
     
     csstree.walk(ast, {
-      enter(node) {
+      enter(node: CssNode) {
         if (node.type === 'Rule') {
           const selectorText = csstree.generate(node.prelude);
           
@@ -29,7 +30,7 @@ export function extractSectionCSS(
           const mediaRules: string[] = [];
           
           csstree.walk(node, {
-            enter(child) {
+            enter(child: CssNode) {
               if (child.type === 'Rule') {
                 const selectorText = csstree.generate(child.prelude);
                 if (isRelevantSelector(selectorText, sectionSelector, classList)) {
@@ -86,11 +87,11 @@ export function scopeSectionCSS(css: string, scopeSelector: string): string {
     const ast = csstree.parse(css);
     
     csstree.walk(ast, {
-      enter(node) {
+      enter(node: CssNode) {
         if (node.type === 'Rule' && node.prelude.type === 'SelectorList') {
           // Prepend scope selector to each selector
           csstree.walk(node.prelude, {
-            enter(selectorNode) {
+            enter(selectorNode: CssNode) {
               if (selectorNode.type === 'Selector' && selectorNode.children) {
                 // Add scope class at the beginning
                 const scopeClassNode: csstree.ClassSelector = {

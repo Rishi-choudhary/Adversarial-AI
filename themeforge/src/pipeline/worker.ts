@@ -1,5 +1,5 @@
 import { Worker, Job } from 'bullmq';
-import { getRedis, setJob, completeJob, failJob, JobData, StepStatus } from '../lib/redis';
+import { setJob, completeJob, failJob, JobData, StepStatus } from '../lib/redis';
 import { scrapeWebsite, cleanup as cleanupScraper } from '../scraper';
 import { detectSections } from '../analyzer/sectionDetector';
 import { classifySections } from '../analyzer/sectionClassifier';
@@ -8,7 +8,7 @@ import { convertSectionsToLiquid } from '../converter/liquidGenerator';
 import { generateThemeJS } from '../converter/jsProcessor';
 import { buildTheme } from '../assembler/themeBuilder';
 import { buildZip, formatFileSize } from '../assembler/zipBuilder';
-import { writeFile, getJobPath } from '../lib/storage';
+import { writeFile } from '../lib/storage';
 import { processImages } from './imageProcessor';
 import { emitProgress, ProgressStep } from './progressEmitter';
 
@@ -26,6 +26,19 @@ export interface ConversionJob {
 let worker: Worker | null = null;
 
 /**
+ * Get Redis connection options for BullMQ
+ */
+function getRedisOptions() {
+  const redisUrl = process.env.REDIS_URL || 'redis://localhost:6379';
+  const url = new URL(redisUrl);
+  return {
+    host: url.hostname,
+    port: parseInt(url.port) || 6379,
+    password: url.password || undefined,
+  };
+}
+
+/**
  * Start the worker process
  */
 export function startWorker(): Worker {
@@ -33,15 +46,13 @@ export function startWorker(): Worker {
     return worker;
   }
 
-  const connection = getRedis();
-
   worker = new Worker<ConversionJob>(
     'themeforge-conversion',
     async (job) => {
       return processConversionJob(job);
     },
     {
-      connection,
+      connection: getRedisOptions(),
       concurrency: parseInt(process.env.MAX_CONCURRENT_JOBS || '3', 10),
       limiter: {
         max: 10,

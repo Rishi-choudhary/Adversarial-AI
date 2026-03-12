@@ -109,7 +109,7 @@ export async function processImage(
 
     // Convert format
     let outputFilename = image.filename;
-    let outputFormat = format;
+    let outputFormat: string = format;
 
     switch (format) {
       case 'webp':
@@ -131,7 +131,7 @@ export async function processImage(
         } else if (metadata.format === 'png') {
           pipeline = pipeline.png({ compressionLevel: 9 });
         }
-        outputFormat = metadata.format || 'original';
+        outputFormat = (metadata.format as string) || 'original';
     }
 
     const outputBuffer = await pipeline.toBuffer();

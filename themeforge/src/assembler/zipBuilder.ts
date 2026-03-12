@@ -53,7 +53,7 @@ export async function buildZip(theme: ThemeStructure): Promise<ZipResult> {
         if (Buffer.isBuffer(content)) {
           archive.append(content, { name: path });
         } else {
-          archive.append(content, { name: path });
+          archive.append(content as string, { name: path });
         }
         
         fileCount++;
@@ -124,7 +124,7 @@ export function createZipStream(theme: ThemeStructure): archiver.Archiver {
       if (Buffer.isBuffer(content)) {
         archive.append(content, { name: path });
       } else {
-        archive.append(content, { name: path });
+        archive.append(content as string, { name: path });
       }
     }
   }
@@ -142,7 +142,7 @@ export function estimateCompressedSize(theme: ThemeStructure): number {
     for (const content of Object.values(files)) {
       if (Buffer.isBuffer(content)) {
         totalSize += content.length;
-      } else {
+      } else if (typeof content === 'string') {
         totalSize += Buffer.byteLength(content, 'utf8');
       }
     }

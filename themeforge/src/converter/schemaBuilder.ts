@@ -255,7 +255,6 @@ function generateBlocks(section: ClassifiedSection): SchemaBlock[] {
   // Add blocks based on section type
   switch (section.shopifyType) {
     case 'multicolumn':
-    case 'features':
       blocks.push({
         type: 'column',
         name: 'Column',
@@ -284,7 +283,6 @@ function generateBlocks(section: ClassifiedSection): SchemaBlock[] {
       break;
 
     case 'collage':
-    case 'gallery':
       blocks.push({
         type: 'image',
         name: 'Image',

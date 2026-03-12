@@ -1,4 +1,5 @@
 import * as csstree from 'css-tree';
+import type { CssNode } from 'css-tree';
 import { resolveUrl } from '../lib/utils';
 
 export interface ExtractedCSS {
@@ -34,7 +35,7 @@ export function parseCSS(cssContent: string): ExtractedCSS {
     });
 
     csstree.walk(ast, {
-      enter(node) {
+      enter(node: CssNode) {
         // Extract URLs
         if (node.type === 'Url') {
           const url = node.value;
@@ -85,7 +86,7 @@ function extractFontFace(node: csstree.Atrule): FontFace | null {
   };
 
   csstree.walk(node.block, {
-    enter(child) {
+    enter(child: CssNode) {
       if (child.type === 'Declaration') {
         const value = csstree.generate(child.value);
         
@@ -168,11 +169,11 @@ export function scopeCSS(cssContent: string, scopeClass: string): string {
     const ast = csstree.parse(cssContent);
 
     csstree.walk(ast, {
-      enter(node, item, list) {
+      enter(node: CssNode) {
         if (node.type === 'Rule' && node.prelude.type === 'SelectorList') {
           // Add scope class to each selector
           csstree.walk(node.prelude, {
-            enter(selectorNode) {
+            enter(selectorNode: CssNode) {
               if (selectorNode.type === 'Selector') {
                 // Prepend scope class
                 const scopeSelector = csstree.parse(`.${scopeClass}`, {
