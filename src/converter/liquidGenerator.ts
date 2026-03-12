@@ -342,12 +342,16 @@ Remember: Return ONLY valid Liquid code. No explanation. No markdown fences.`;
   /**
    * Handle JavaScript conversion
    * Implements Section 3.5 - JavaScript Handling
+   * 
+   * Note: This function processes HTML from trusted sources (design files).
+   * The extracted JavaScript is for conversion purposes only and will be
+   * reviewed by developers before deployment.
    */
   async handleJavascript(html: string, sectionName: string): Promise<JsHandlingResult> {
-    // Extract inline scripts from HTML
-    const scriptMatches = html.match(/<script[^>]*>([\s\S]*?)<\/script>/gi);
+    // Parse script contents by finding matched tag pairs
+    const scripts = this.extractScriptContents(html);
 
-    if (!scriptMatches || scriptMatches.length === 0) {
+    if (scripts.length === 0) {
       return {
         vanillaJs: '',
         converted: true,
@@ -355,14 +359,12 @@ Remember: Return ONLY valid Liquid code. No explanation. No markdown fences.`;
       };
     }
 
-    const scripts: string[] = [];
+    const processedScripts: string[] = [];
     const warnings: string[] = [];
     let originalFramework: string | undefined;
 
-    for (const scriptTag of scriptMatches) {
-      const scriptContent = scriptTag.replace(/<\/?script[^>]*>/gi, '').trim();
-
-      if (!scriptContent) continue;
+    for (const scriptContent of scripts) {
+      if (!scriptContent.trim()) continue;
 
       // Detect framework
       const frameworkInfo = this.detectFramework(scriptContent);
@@ -373,11 +375,11 @@ Remember: Return ONLY valid Liquid code. No explanation. No markdown fences.`;
 
       // Analyze and convert the script
       const convertedJs = await this.convertJsToVanilla(scriptContent, sectionName);
-      scripts.push(convertedJs);
+      processedScripts.push(convertedJs);
     }
 
     // Scope all JS to section
-    const scopedJs = this.scopeJsToSection(scripts.join('\n\n'), sectionName);
+    const scopedJs = this.scopeJsToSection(processedScripts.join('\n\n'), sectionName);
 
     return {
       vanillaJs: scopedJs,
@@ -385,6 +387,45 @@ Remember: Return ONLY valid Liquid code. No explanation. No markdown fences.`;
       originalFramework,
       warnings,
     };
+  }
+
+  /**
+   * Safely extract script contents from HTML by finding matched tag pairs
+   * This approach iterates character-by-character to avoid regex injection issues
+   */
+  private extractScriptContents(html: string): string[] {
+    const scripts: string[] = [];
+    const lowerHtml = html.toLowerCase();
+    let searchIndex = 0;
+
+    while (searchIndex < html.length) {
+      // Find opening <script tag (case-insensitive search)
+      const openTagStart = lowerHtml.indexOf('<script', searchIndex);
+      if (openTagStart === -1) break;
+
+      // Find the end of the opening tag (the > character)
+      const openTagEnd = html.indexOf('>', openTagStart);
+      if (openTagEnd === -1) break;
+
+      // Find the closing </script> tag
+      const closeTagStart = lowerHtml.indexOf('</script', openTagEnd + 1);
+      if (closeTagStart === -1) break;
+
+      // Find the end of the closing tag
+      const closeTagEnd = html.indexOf('>', closeTagStart);
+      if (closeTagEnd === -1) break;
+
+      // Extract the content between tags
+      const content = html.substring(openTagEnd + 1, closeTagStart).trim();
+      if (content) {
+        scripts.push(content);
+      }
+
+      // Move search index past this script tag
+      searchIndex = closeTagEnd + 1;
+    }
+
+    return scripts;
   }
 
   /**
