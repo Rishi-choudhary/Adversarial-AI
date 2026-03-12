@@ -1,0 +1,36 @@
+{
+  "name": "themeforge-converter",
+  "version": "1.0.0",
+  "description": "ThemeForge - Convert HTML websites to Shopify Liquid themes",
+  "main": "dist/converter/index.js",
+  "types": "dist/converter/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "clean": "rm -rf dist",
+    "lint": "eslint src/**/*.ts",
+    "test": "jest",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "shopify",
+    "liquid",
+    "theme",
+    "converter",
+    "html"
+  ],
+  "author": "ThemeForge",
+  "license": "MIT",
+  "dependencies": {
+    "@google/generative-ai": "^0.7.0",
+    "cheerio": "^1.0.0",
+    "css-tree": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.x",
+    "typescript": "^5.x"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
