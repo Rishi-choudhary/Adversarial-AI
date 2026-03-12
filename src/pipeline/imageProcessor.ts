@@ -18,6 +18,21 @@ import {
 } from '../types';
 
 /**
+ * Hash length for filename generation.
+ * 12 hex characters = 48 bits of entropy, providing ~281 trillion unique values.
+ * This is sufficient to avoid collisions in typical theme image sets while
+ * keeping filenames reasonably short.
+ */
+const HASH_LENGTH = 12;
+
+/**
+ * Maximum length for the descriptive part of the filename.
+ * Keeps filenames readable while avoiding filesystem path length limits.
+ * Combined with prefix and hash, total filename stays under 60 chars.
+ */
+const MAX_FILENAME_LENGTH = 30;
+
+/**
  * Default image processing options
  */
 const DEFAULT_OPTIONS: ImageProcessingOptions = {
@@ -42,7 +57,7 @@ export class ImageProcessor {
    * Generate MD5 hash for content
    */
   private generateHash(content: Buffer): string {
-    return crypto.createHash('md5').update(content).digest('hex').substring(0, 12);
+    return crypto.createHash('md5').update(content).digest('hex').substring(0, HASH_LENGTH);
   }
 
   /**
@@ -63,7 +78,7 @@ export class ImageProcessor {
       .replace(/[^a-z0-9-]/g, '-')
       .replace(/-+/g, '-')
       .replace(/^-|-$/g, '')
-      .substring(0, 30);
+      .substring(0, MAX_FILENAME_LENGTH);
     
     return `image-${cleanName}-${hash}.${ext}`;
   }
@@ -157,7 +172,9 @@ export class ImageProcessor {
         case 'webp':
           return await image.webp({ quality: this.options.quality }).toBuffer();
         case 'png':
-          return await image.png({ quality: this.options.quality }).toBuffer();
+          // PNG is lossless, uses compressionLevel (0-9) instead of quality
+          // Higher compression = smaller file but slower encoding
+          return await image.png({ compressionLevel: 6 }).toBuffer();
         case 'jpeg':
           return await image.jpeg({ quality: this.options.quality }).toBuffer();
         default:

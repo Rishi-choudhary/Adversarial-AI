@@ -24,6 +24,22 @@ import {
 } from '../types';
 
 /**
+ * Shopify font picker weight values.
+ * Format is `fontname_nX` where X is the weight (1-9).
+ * 4 = normal (400), 7 = bold (700).
+ * @see https://shopify.dev/docs/themes/architecture/settings/input-settings#font_picker
+ */
+const FONT_WEIGHT_BODY = '4';    // Normal weight (400) for body text
+const FONT_WEIGHT_HEADING = '7'; // Bold weight (700) for headings
+
+/**
+ * Maximum number of blocks allowed in a Shopify section.
+ * This is a Shopify platform limitation.
+ * @see https://shopify.dev/docs/themes/architecture/sections/section-schema#blocks
+ */
+const MAX_SECTION_BLOCKS = 16;
+
+/**
  * Default theme configuration
  */
 const DEFAULT_CONFIG: ThemeConfig = {
@@ -205,13 +221,13 @@ export class ThemeBuilder {
             type: 'font_picker',
             id: 'font_body',
             label: 'Body font',
-            default: this.mapFontToShopify(this.designTokens.fontBody, '4'),
+            default: this.mapFontToShopify(this.designTokens.fontBody, FONT_WEIGHT_BODY),
           },
           {
             type: 'font_picker',
             id: 'font_heading',
             label: 'Heading font',
-            default: this.mapFontToShopify(this.designTokens.fontHeading, '7'),
+            default: this.mapFontToShopify(this.designTokens.fontHeading, FONT_WEIGHT_HEADING),
           },
           {
             type: 'range',
@@ -322,8 +338,8 @@ export class ThemeBuilder {
       color_accent: this.designTokens.accentColor,
       color_background: '#ffffff',
       color_text: '#121212',
-      font_body: this.mapFontToShopify(this.designTokens.fontBody, '4'),
-      font_heading: this.mapFontToShopify(this.designTokens.fontHeading, '7'),
+      font_body: this.mapFontToShopify(this.designTokens.fontBody, FONT_WEIGHT_BODY),
+      font_heading: this.mapFontToShopify(this.designTokens.fontHeading, FONT_WEIGHT_HEADING),
       font_body_scale: 100,
       font_heading_scale: 100,
       logo_width: 150,
@@ -435,7 +451,7 @@ ${JSON.stringify(schema, null, 2)}
         settings: this.generateSchemaSettings(settings),
       }));
 
-      schema.max_blocks = 16;
+      schema.max_blocks = MAX_SECTION_BLOCKS;
     }
 
     // Add presets for sections that can be added dynamically
