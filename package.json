@@ -1,0 +1,31 @@
+{
+  "name": "adversarial-ai-converter",
+  "version": "1.0.0",
+  "description": "Liquid Conversion Engine for converting HTML to Shopify Liquid",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "lint": "eslint src --ext .ts",
+    "test": "jest"
+  },
+  "keywords": [
+    "shopify",
+    "liquid",
+    "converter",
+    "html-to-liquid"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/acorn": "^4.0.6",
+    "@types/css-tree": "^2.3.11",
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "acorn": "^8.14.0",
+    "css-tree": "^3.1.0"
+  }
+}
