@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  # Redis for job queue and caching
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Main Next.js application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - REDIS_URL=redis://redis:6379
+      - STORAGE_TYPE=local
+      - STORAGE_LOCAL_PATH=/app/tmp/jobs
+      - NEXT_PUBLIC_APP_URL=http://localhost:3000
+    volumes:
+      - ./tmp/jobs:/app/tmp/jobs
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Background worker for processing jobs
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: npm run worker
+    environment:
+      - NODE_ENV=production
+      - REDIS_URL=redis://redis:6379
+      - STORAGE_TYPE=local
+      - STORAGE_LOCAL_PATH=/app/tmp/jobs
+      - MAX_CONCURRENT_JOBS=3
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - JOB_TTL_HOURS=24
+    volumes:
+      - ./tmp/jobs:/app/tmp/jobs
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  redis_data:
