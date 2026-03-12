@@ -1,7 +1,7 @@
 {
   "name": "adversarial-ai",
   "version": "1.0.0",
-  "description": "An AI-powered legal debate platform designed in a pixel-art inspired interface, built for IEEE's \"Pixel Palettes\" hackathon, by **Team 17**. It allows users to enter a legal topic and receive **structured pro and con arguments**, grounded in law and logic, using classical ML models and a legal knowledge base.",
+  "description": "An AI-powered legal debate platform with DOM analysis algorithms for section detection, schema inference, and repeating block detection.",
   "main": "dist/algorithms/index.js",
   "types": "dist/algorithms/index.d.ts",
   "scripts": {
