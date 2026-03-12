@@ -1,0 +1,35 @@
+{
+  "name": "adversarial-ai",
+  "version": "1.0.0",
+  "description": "An AI-powered legal debate platform with DOM analysis algorithms for section detection, schema inference, and repeating block detection.",
+  "main": "dist/algorithms/index.js",
+  "types": "dist/algorithms/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rishi-choudhary/Adversarial-AI.git"
+  },
+  "keywords": [
+    "section-detection",
+    "schema-inference",
+    "dom-analysis",
+    "shopify",
+    "liquid"
+  ],
+  "author": "Team 17",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Rishi-choudhary/Adversarial-AI/issues"
+  },
+  "homepage": "https://github.com/Rishi-choudhary/Adversarial-AI#readme",
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "typescript": "^5.9.3"
+  }
+}
