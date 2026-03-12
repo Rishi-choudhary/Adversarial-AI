@@ -272,13 +272,13 @@ export class LiquidGenerator {
    */
   async generateSections(
     inputs: SectionInput[], 
-    concurrency: number = 5
+    batchSize: number = 5
   ): Promise<Map<string, GenerationResult>> {
     const results = new Map<string, GenerationResult>();
     
     // Process in batches to respect rate limits
-    for (let i = 0; i < inputs.length; i += concurrency) {
-      const batch = inputs.slice(i, i + concurrency);
+    for (let i = 0; i < inputs.length; i += batchSize) {
+      const batch = inputs.slice(i, i + batchSize);
       const batchPromises = batch.map(input => 
         this.generateSection(input).then(result => ({ name: input.sectionName, result }))
       );
@@ -289,7 +289,7 @@ export class LiquidGenerator {
       }
       
       // Small delay between batches for rate limiting
-      if (i + concurrency < inputs.length) {
+      if (i + batchSize < inputs.length) {
         await new Promise(resolve => setTimeout(resolve, 1000));
       }
     }

@@ -29,6 +29,12 @@ services:
     volumes:
       - ./tmp:/app/tmp
       - ./output:/app/output
+    healthcheck:
+      test: ["CMD", "node", "-e", "process.exit(0)"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
     restart: unless-stopped
 
   # Main application server
@@ -45,7 +51,7 @@ services:
       redis:
         condition: service_healthy
       worker:
-        condition: service_started
+        condition: service_healthy
     volumes:
       - .:/app
       - /app/node_modules
